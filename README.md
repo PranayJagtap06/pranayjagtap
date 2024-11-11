@@ -1,2 +1,2 @@
 # pranayjagtap
-Portfolio website for Pranay Jagtap.
+Portfolio/Personal website for Pranay Jagtap.
