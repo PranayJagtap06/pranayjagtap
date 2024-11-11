@@ -1,0 +1,8 @@
+{
+  "id": "002-hand-sign-classification",
+  "title": "Hand Sign Classification with CNN",
+  "date": "2024-04-16",
+  "description": "0-5 hand sign classification using CNN",
+  "tags": ["image-classification", "cnn", "tensorflow"],
+  "headerImage": "./portfolios/002-hand-sign-classification/human-hands-background-set-scaled.jpg"
+}

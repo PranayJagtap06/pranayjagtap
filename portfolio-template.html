@@ -1,0 +1,394 @@
+<!-- portfolio-template.html -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Dynamic SEO Meta Tags -->
+    <title id="dynamicTitle">Pranay Jagtap - Project Portfolio</title>
+    
+    <!-- Placeholder meta tags that will be dynamically updated -->
+    <meta name="title" id="dynamicMetaTitle" content="Pranay Jagtap - Project Portfolio">
+    <meta name="description" id="dynamicMetaDescription" content="Machine Learning and Data Science Projects">
+    <meta name="keywords" id="dynamicMetaKeywords" content="Machine Learning, Data Science, Projects">
+    
+    <!-- Robots and Canonical -->
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" id="dynamicCanonical" href="">
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="article">
+    <meta property="og:title" id="dynamicOgTitle" content="">
+    <meta property="og:description" id="dynamicOgDescription" content="">
+    <meta property="og:image" id="dynamicOgImage" content="">
+    <meta property="og:url" id="dynamicOgUrl" content="">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" id="dynamicTwitterTitle" content="">
+    <meta name="twitter:description" id="dynamicTwitterDescription" content="">
+    <meta name="twitter:image" id="dynamicTwitterImage" content="">
+
+    <!-- Structured Data -->
+    <script type="application/ld+json" id="dynamicJsonLd"></script>
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css"
+        integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
+    <link rel="stylesheet" href="/css/custom.css">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon_io/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon_io/favicon-16x16.png">
+    <link rel="apple-touch-icon" type="image/png" href="favicon_io/apple-touch-icon-180x180.png">
+    <link rel="manifest" href="favicon_io/site.webmanifest">
+    <meta name="theme-color" content="#ffffff">
+
+    <!-- Prism.js for code highlighting -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax//libs/prism/1.29.0/components/prism-python.min.js"></script>
+    <!-- Marked.js for markdown -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/marked/4.3.0/marked.min.js"></script>
+
+    <title>Pranay's Project</title>
+</head>
+
+<body>
+    <nav class="navbar">
+        <ul>
+            <li><a href="index.html" class="nav-link" rel="noopener noreferrer">Home</a></li>
+            <li><a href="portfolios.html" class="nav-link" rel="noopener noreferrer">Portfolios</a></li>
+            <li><a href="PranayJagtap.pdf" class="nav-link" target="_blank" rel="noopener noreferrer">CV/Resume</a></li>
+            <li><a href="about.html" class="nav-link" rel="noopener noreferrer">About</a></li>
+            <li><a href="contact.html" class="nav-link" rel="noopener noreferrer">Contact</a></li>
+            <!-- <li class="search-container">
+                <input type="text" class="search-input" placeholder="Search portfolios...">
+                <div class="search-results"></div>
+            </li> -->
+        </ul>
+    </nav>
+
+
+    <main class="portfolio-container">    <!-- Portfolio Header -->
+    <header class="portfolio-header">
+        <div class="header-content">
+            <h1 class="portfolio-title" id="portfolioTitle"></h1>
+            <p class="portfolio-date" id="portfolioDate"></p>
+        </div>
+    </header>
+
+        <div class="portfolio-content" id="portfolioContent">
+            <div class="markdown-content" id="markdownContent"></div>
+        </div>
+
+        <div class="portfolio-navigation" id="portfolioNavigation"></div>
+    </main>
+
+    <script src="/js/nav-script.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Entire JavaScript code goes here
+            class PortfolioViewer {
+                constructor() {
+                    this.currentPortfolio = null;
+                    this.allPortfolios = [];
+                    this.searchDebounceTimeout = null;
+                }
+    
+                async initialize() {
+                    const urlParams = new URLSearchParams(window.location.search);
+                    const portfolioId = urlParams.get('id');
+    
+                    if (!portfolioId) {
+                        this.showError('No portfolio ID specified');
+                        return;
+                    }
+    
+                    try {
+                        // Load all portfolios first for navigation
+                        const portfoliosResponse = await fetch('./portfolios/portfolios.json');
+                        if (!portfoliosResponse.ok) throw new Error('Failed to load portfolios data');
+                        this.allPortfolios = await portfoliosResponse.json();
+    
+                        await this.loadPortfolio(portfolioId);
+                        this.setupSearch();
+                    } catch (error) {
+                        this.showError('Failed to initialize portfolio viewer', error.message);
+                        console.error('Initialization Error:', error);
+                    }
+                }
+
+                updateMetaTags(portfolioData) {
+                    // Construct full URL
+                    const currentUrl = window.location.href;
+
+                    // Generate keywords
+                    const baseKeywords = [
+                        'Machine Learning', 
+                        'Data Science', 
+                        'Project', 
+                        'Portfolio', 
+                        'Pranay Jagtap'
+                    ];
+                    const combinedKeywords = [...baseKeywords, ...portfolioData.tags];
+                    const keywordsString = [...new Set(combinedKeywords)].join(', ');
+
+                    // Generate description
+                    const description = `${portfolioData.description} | Machine Learning Project by Pranay Jagtap using ${portfolioData.tags.join(', ')}`;
+
+                    // Update Title
+                    document.title = `${portfolioData.title} | Pranay Jagtap Portfolio`;
+                    
+                    // Update Meta Tags
+                    document.getElementById('dynamicMetaTitle').setAttribute('content', portfolioData.title);
+                    document.getElementById('dynamicMetaDescription').setAttribute('content', description);
+                    document.getElementById('dynamicMetaKeywords').setAttribute('content', keywordsString);
+                    
+                    // Canonical URL
+                    document.getElementById('dynamicCanonical').setAttribute('href', currentUrl);
+
+                    // Open Graph Tags
+                    document.getElementById('dynamicOgTitle').setAttribute('content', portfolioData.title);
+                    document.getElementById('dynamicOgDescription').setAttribute('content', description);
+                    document.getElementById('dynamicOgImage').setAttribute('content', portfolioData.headerImage ? window.location.origin + portfolioData.headerImage.replace('./', '/') : '');
+                    document.getElementById('dynamicOgUrl').setAttribute('content', currentUrl);
+
+                    // Twitter Card Tags
+                    document.getElementById('dynamicTwitterTitle').setAttribute('content', portfolioData.title);
+                    document.getElementById('dynamicTwitterDescription').setAttribute('content', description);
+                    document.getElementById('dynamicTwitterImage').setAttribute('content', portfolioData.headerImage ? window.location.origin + portfolioData.headerImage.replace('./', '/') : '');
+
+                    // Structured JSON-LD
+                    const jsonLdContent = {
+                        "@context": "https://schema.org",
+                        "@type": "CreativeWork",
+                        "name": portfolioData.title,
+                        "description": description,
+                        "keywords": keywordsString,
+                        "datePublished": portfolioData.date,
+                        "image": portfolioData.headerImage ? window.location.origin + portfolioData.headerImage.replace('./', '/') : '',
+                        "author": {
+                            "@type": "Person",
+                            "name": "Pranay Jagtap",
+                            "jobTitle": "Machine Learning Engineer"
+                        },
+                        "additionalProperty": {
+                            "technologies": portfolioData.tags
+                        }
+                    };
+
+                    document.getElementById('dynamicJsonLd').textContent = JSON.stringify(jsonLdContent, null, 2);
+                }
+    
+                async loadPortfolio(id) {
+                    try {
+                        this.showLoading();
+    
+                        // Find the portfolio data from the loaded portfolios
+                        const portfolioData = this.allPortfolios.find(p => p.id === id);
+                        if (!portfolioData) throw new Error('Portfolio not found');
+    
+                        // Load content.md
+                        const contentResponse = await fetch(`./portfolios/${id}/content.md`);
+                        if (!contentResponse.ok) throw new Error('Failed to load portfolio content');
+                        const content = await contentResponse.text();
+    
+                        this.currentPortfolio = { meta: portfolioData, content };
+                        this.displayPortfolio();
+                        this.updateNavigation(id);
+                    } catch (error) {
+                        this.showError('Failed to load portfolio. Please try again later.', error.message);
+                        console.error('Loading Error:', error);
+                    } finally {
+                        this.hideLoading();
+                    }
+                }
+    
+                displayPortfolio() {
+                    if (!this.currentPortfolio) return;
+
+                    const { meta, content } = this.currentPortfolio;
+
+                    // Update header
+                    document.getElementById('portfolioTitle').textContent = meta.title;
+                    document.getElementById('portfolioDate').textContent = new Date(meta.date)
+                        .toLocaleDateString('en-US', {
+                            weekday: 'long',
+                            day: 'numeric',
+                            month: 'long',
+                            year: 'numeric'
+                        });
+
+                    // Update header image
+                    const header = document.querySelector('.portfolio-header');
+                    if (meta.headerImage) {
+                        header.style.backgroundImage = `url('${meta.headerImage}')`;
+                    }
+
+                    // Configure marked options
+                    marked.setOptions({
+                        highlight: function(code, lang) {
+                            if (Prism.languages[lang]) {
+                                return Prism.highlight(code, Prism.languages[lang], lang);
+                            }
+                            return code;
+                        },
+                        breaks: true,
+                        gfm: true
+                    });
+
+                    // Render markdown content
+                    const portfolioContent = document.getElementById('portfolioContent');
+                    portfolioContent.innerHTML = '';
+                    const markdownContent = document.createElement('div');
+                    markdownContent.id = 'markdownContent';
+                    markdownContent.innerHTML = marked.parse(content);
+                    portfolioContent.appendChild(markdownContent);
+
+                    // Add tags
+                    const tagsContainer = document.createElement('div');
+                    tagsContainer.classList.add('tags-container');
+                    const tagsHtml = meta.tags.map(tag => `<span class="tag"><i class="fa-solid fa-tag"></i> ${tag}</span>`).join('');
+                    tagsContainer.innerHTML = `<p><i class="fa-solid fa-hashtag"></i> ${tagsHtml}</p>`;
+                    portfolioContent.appendChild(tagsContainer);
+
+                    const searchInput = document.querySelector('.search-input');
+
+                    // Add event listener to tags
+                    const tags = document.querySelectorAll('.tag');
+                    tags.forEach((tag) => {
+                        tag.addEventListener('click', (e) => {
+                            e.stopPropagation(); // Prevent parent element events
+                            const searchTerm = e.target.textContent.trim(); // Get tag text
+                            window.location.href = `portfolios.html?tag=${encodeURIComponent(searchTerm)}`;
+                            // const searchInput = document.getElementById('search-input');
+                            // searchInput.value = searchTerm;
+                            // searchInput.focus();
+                            
+                            // // Filter portfolios by tag
+                            // portfolioManager.filteredPortfolios = portfolioManager.portfolios.filter(portfolio =>
+                            //     portfolio.tags.some(tag => tag.toLowerCase() === searchTerm.toLowerCase())
+                            // );
+                            
+                            // portfolioManager.currentPage = 1;
+                            // portfolioManager.displayPortfolios();
+                            // portfolioManager.updatePagination();
+                            
+                            // const searchResults = document.getElementById('search-results');
+                            // searchResults.classList.add('active');
+                        });
+                    });
+
+                    // Highlight code blocks
+                    Prism.highlightAll();
+                }
+    
+                updateNavigation(currentId) {
+                    const currentIndex = this.allPortfolios.findIndex(p => p.id === currentId);
+                    const prevPortfolio = currentIndex > 0 ? this.allPortfolios[currentIndex - 1] : null;
+                    const nextPortfolio = currentIndex < this.allPortfolios.length - 1 ? this.allPortfolios[currentIndex + 1] : null;
+    
+                    const nav = document.getElementById('portfolioNavigation');
+                    nav.innerHTML = `
+                        ${nextPortfolio ? `
+                            <a href="portfolio-template.html?id=${nextPortfolio.id}" class="nav-button">
+                                <i class="fas fa-arrow-left"></i> New Portfolio: ${nextPortfolio.title}
+                            </a>
+                        ` : '<div></div>'}
+                        ${prevPortfolio ? `
+                            <a href="portfolio-template.html?id=${prevPortfolio.id}" class="nav-button">
+                                Old Portfolio: ${prevPortfolio.title} <i class="fas fa-arrow-right"></i>
+                            </a>
+                        ` : '<div></div>'}
+                    `;
+                }
+    
+                setupSearch() {
+                    const searchInput = document.querySelector('.search-input');
+                    const searchResults = document.querySelector('.search-results');
+    
+                    // Verify that elements exist to avoid errors
+                    if (!searchInput || !searchResults) {
+                        console.error("Search input or results element is missing.");
+                        return;
+                    }
+    
+                    searchInput.addEventListener('input', (e) => {
+                        const searchTerm = e.target.value.toLowerCase();
+                        clearTimeout(this.searchDebounceTimeout);
+    
+                        if (searchTerm.length < 2) {
+                            searchResults.classList.remove('active');
+                            return;
+                        }
+    
+                        this.searchDebounceTimeout = setTimeout(() => {
+                            const results = this.allPortfolios.filter(portfolio =>
+                                portfolio.title.toLowerCase().includes(searchTerm) ||
+                                portfolio.description.toLowerCase().includes(searchTerm) ||
+                                portfolio.tags.some(tag => tag.toLowerCase().includes(searchTerm))
+                            );
+    
+                            if (results.length > 0) {
+                                searchResults.innerHTML = results.map(portfolio => `
+                                    <div class="search-result-item" onclick="window.location.href='portfolio-template.html?id=${portfolio.id}'">
+                                        <div>${portfolio.title}</div>
+                                        <small>${new Date(portfolio.date).toLocaleDateString()}</small>
+                                    </div>
+                                `).join('');
+                            } else {
+                                searchResults.innerHTML = '<div class="search-result-item">No results found</div>';
+                            }
+                            searchResults.classList.add('active');
+                        }, 300);
+                    });
+    
+                    document.addEventListener('click', (e) => {
+                        if (!searchInput.contains(e.target) && !searchResults.contains(e.target)) {
+                            searchResults.classList.remove('active');
+                        }
+                    });
+                }
+    
+                showLoading() {
+                    const content = document.getElementById('portfolioContent');
+                    if (content) {
+                        content.innerHTML = '<div class="loading">Loading...</div>';
+                    }
+                }
+    
+                hideLoading() {
+                    const loading = document.querySelector('.loading');
+                    if (loading) loading.remove();
+                }
+    
+                showError(message, error) {
+                    const content = document.getElementById('portfolioContent');
+                    if (content) {
+                        content.innerHTML = `<div class="error-message">${message}<br>${error ? error : ''}</div>`;
+                    } else {
+                        console.error("Error display element not found: ", message, error);
+                    }
+                }
+            }
+    
+            // Initialize the portfolio viewer
+            const portfolioViewer = new PortfolioViewer();
+            portfolioViewer.initialize();
+        });
+    </script>    
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const container = document.querySelector('.container');
+
+            // Set the height of the container to enable scrolling
+            container.style.height = '300px'; // Set a specific height
+            container.style.overflowY = 'auto'; // Enable vertical scrolling
+        });
+    </script>
+</body>
+
+</html>

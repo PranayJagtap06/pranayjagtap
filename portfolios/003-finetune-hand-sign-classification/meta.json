@@ -1,0 +1,8 @@
+{
+    "id": "003-finetune-hand-sign-classification",
+    "title": "Fine Tuned Hand Sign Classifier",
+    "date": "2024-07-03",
+    "description": "Fine tuning 0-5 hand sign classifier using Transfer Learning",
+    "tags": ["image-classification", "transfer-learning", "tensorflow"],
+    "headerImage": "./portfolios/003-finetune-hand-sign-classification/transfer-learning.jpg"
+}

@@ -1,0 +1,26 @@
+[
+    {
+        "id": "001-foreign-exchange-reserves-prediction",
+        "title": "Indian Foreign Exchange Reserves Prediction",
+        "date": "2024-04-1",
+        "description": "Training a Facebook Prophet model to predict Indian foreign exchange reserves.",
+        "tags": ["prophet", "scikit-learn", "time-series"],
+        "headerImage": "./portfolios/001-foreign-exchange-reserves-prediction/unsplash_indian_rupee.jpg"
+    },
+    {
+        "id": "002-hand-sign-classification",
+        "title": "Hand Sign Classification with CNN",
+        "date": "2024-04-16",
+        "description": "0-5 hand sign classification using CNN",
+        "tags": ["image-classification", "cnn", "tensorflow"],
+        "headerImage": "./portfolios/002-hand-sign-classification/human-hands-background-set-scaled.jpg"
+    },
+    {
+        "id": "003-finetune-hand-sign-classification",
+        "title": "Fine Tuned Hand Sign Classifier",
+        "date": "2024-07-03",
+        "description": "Fine tuning 0-5 hand sign classifier using Transfer Learning",
+        "tags": ["image-classification", "transfer-learning", "tensorflow"],
+        "headerImage": "./portfolios/003-finetune-hand-sign-classification/transfer-learning.jpg"
+    }
+]
