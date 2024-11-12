@@ -1,6 +1,6 @@
 <!-- portfolios.html -->
 <!DOCTYPE html>
-<html lang="en">
+<html class="js" lang="en">
 
 <head>
     <meta charset="UTF-8">
@@ -99,10 +99,15 @@
         }
     </script>
 
+    <!-- Google Font Family -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Spectral:wght@400;500;600;700&display=swap" rel="stylesheet">
+
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css"
         integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
-    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="css/style.css">
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
     <link rel="icon" type="image/png" sizes="32x32" href="favicon_io/favicon-32x32.png">
@@ -115,8 +120,7 @@
 
 <body>
 
-    <!-- <header id="main-header"> -->
-    <nav class="navbar">
+    <<nav class="navbar desktop-navbar">
         <ul>
             <li><a href="index.html" class="nav-link" rel="noopener noreferrer">Home</a></li>
             <li><a href="portfolios.html" class="nav-link" rel="noopener noreferrer">Portfolios</a></li>
@@ -128,157 +132,161 @@
                 <div class="search-results" id="search-results"></div>
             </li>
         </ul>
-    </nav>
-    <!-- </header> -->
+        </nav>
 
-    <main>
-        <div id="notification-banner" class="notification-banner">
-            <div class="notification-content-container">
-                <span class="notification-text"><em>PyTorch & NLP projects coming soon...</em></span>
-                <button class="notification-close" aria-label="Close notification">&times;</button>
+        <nav class="navbar mobile-navbar">
+            <input type="checkbox" id="menu-toggle" />
+            <label for="menu-toggle" class="menu-toggle">
+                <i class="fa-solid fa-bars"></i>
+            </label>
+            <ul class="mobile-navbar-menu">
+                <li><a href="index.html" class="nav-link">Home</a></li>
+                <li><a href="portfolios.html" class="nav-link">Portfolios</a></li>
+                <li><a href="PranayJagtap.pdf" class="nav-link" target="_blank">CV/Resume</a></li>
+                <li><a href="about.html" class="nav-link">About</a></li>
+                <li><a href="contact.html" class="nav-link">Contact</a></li>
+                <li class="search-container">
+                    <input type="text" class="search-input" id="search-input" placeholder="🔍 Search portfolios...">
+                    <div class="search-results" id="search-results"></div>
+                </li>
+            </ul>
+        </nav>
+
+        <main>
+            <div id="notification-banner" class="notification-banner">
+                <div class="notification-content-container">
+                    <span class="notification-text"><em>PyTorch & NLP projects coming soon...</em></span>
+                    <button class="notification-close" aria-label="Close notification">&times;</button>
+                </div>
             </div>
-        </div>
-        <div class="container padding">
-            <div class="portfolios-grid" id="portfoliosGrid"></div>
-            <div class="pagination-container" id="paginationContainer"></div>
-        </div>
-    </main>
+            <div class="container padding">
+                <div class="portfolios-grid" id="portfoliosGrid"></div>
+                <div class="pagination-container" id="paginationContainer"></div>
+            </div>
+        </main>
 
-    <script src="/js/nav-script.js"></script>
-    <!-- <script src="/js/portfolios.js"></script> -->
-    <script>
-        class PortfolioManager {
-            constructor() {
-                this.portfolios = [];
-                this.filteredPortfolios = [];
-                this.currentPage = 1;
-                this.itemsPerPage = 2;
-                this.totalPortfolios = 0;
-                this.isLoading = false;
-            }
+        <script src="js/nav-script.js"></script>
+        <script>
+            document.addEventListener('DOMContentLoaded', function () {
+                const menuToggle = document.getElementById('menu-toggle');
+                const mobileNavbarMenu = document.querySelector('.mobile-navbar-menu');
 
-            async loadPortfolios(page = 1) {
-                try {
-                    this.isLoading = true;
-                    this.showLoading();
+                // Ensure menu is closed by default
+                mobileNavbarMenu.style.display = 'none';
 
-                    // Updated path for GitHub Pages
-                    const response = await fetch('./portfolios/portfolios.json');
-                    if (!response.ok) throw new Error('Failed to load portfolios');
+                // Toggle menu when clicking the hamburger icon
+                menuToggle.addEventListener('change', (e) => {
+                    mobileNavbarMenu.style.display = menuToggle.checked ? 'flex' : 'none';
+                });
 
-                    const data = await response.json();
-                    this.portfolios = data; // Store the loaded portfolios
-                    this.portfolios.sort((a, b) => new Date(b.date) - new Date(a.date));
-                    // this.filteredPortfolios = this.portfolios;
-                    // this.totalPortfolios = this.portfolios.length;
-                    // this.currentPage = page;
-
-                    // Check for tag filter from URL 3
-                    const urlParams = new URLSearchParams(window.location.search);
-                    const tagFilter = urlParams.get('tag');
-
-                    if (tagFilter) {
-                        // Clean the tag filter
-                        const cleanTagFilter = tagFilter.trim().replace(/^#?\s*/, '');
-
-                        // Filter portfolios by tag
-                        this.filteredPortfolios = this.portfolios.filter(portfolio =>
-                            portfolio.tags.some(tag =>
-                                tag.toLowerCase() === cleanTagFilter.toLowerCase()
-                            )
-                        );
-
-                        // Set search input to the tag
-                        const searchInput = document.getElementById('search-input');
-                        if (searchInput) {
-                            searchInput.value = cleanTagFilter;
-                        }
-                    } else {
-                        this.filteredPortfolios = this.portfolios;
+                // Close menu when clicking outside
+                document.addEventListener('click', (e) => {
+                    if (!e.target.closest('.mobile-navbar')) {
+                        mobileNavbarMenu.style.display = 'none';
+                        menuToggle.checked = false;
                     }
+                });
 
-                    // Check for tag filter from URL 2
-                    // const urlParams = new URLSearchParams(window.location.search);
-                    // const tagFilter = urlParams.get('tag');
-
-                    // if (tagFilter) {
-                    //     // Filter portfolios by tag
-                    //     this.filteredPortfolios = this.portfolios.filter(portfolio => 
-                    //         portfolio.tags.some(tag => 
-                    //             tag.toLowerCase() === decodeURIComponent(tagFilter).toLowerCase()
-                    //         )
-                    //     );
-
-                    //     // Set search input to the tag
-                    //     const searchInput = document.getElementById('search-input');
-                    //     if (searchInput) {
-                    //         searchInput.value = decodeURIComponent(tagFilter);
-                    //     }
-                    // } else {
-                    // this.filteredPortfolios = this.portfolios;
-                    // }
-
-                    // Check for tag filter from URL 1
-                    // const urlParams = new URLSearchParams(window.location.search);
-                    // const tagFilter = urlParams.get('tag');
-
-                    // if (tagFilter) {
-                    //     this.filteredPortfolios = this.portfolios.filter(portfolio => 
-                    //         portfolio.tags.some(tag => tag.toLowerCase() === tagFilter.toLowerCase())
-                    //     );
-
-                    //     // Set search input to the tag
-                    //     const searchInput = document.getElementById('search-input');
-                    //     if (searchInput) {
-                    //         searchInput.value = tagFilter;
-                    //     }
-                    // } else {
-                    //     this.filteredPortfolios = this.portfolios;
-                    // }
-
-                    this.totalPortfolios = this.filteredPortfolios.length;
-                    this.currentPage = page;
-
-                    this.displayPortfolios();
-                    this.updatePagination();
-                } catch (error) {
-                    this.showError('Failed to load portfolios. Please try again later.');
-                    console.error('Error:', error);
-                } finally {
+                // Close menu when menu item is clicked
+                mobileNavbarMenu.addEventListener('click', (e) => {
+                    if (e.target.tagName === 'A') {
+                        mobileNavbarMenu.style.display = 'none';
+                        menuToggle.checked = false;
+                    }
+                });
+            });
+        </script>
+        <script>
+            class PortfolioManager {
+                constructor() {
+                    this.portfolios = [];
+                    this.filteredPortfolios = [];
+                    this.currentPage = 1;
+                    this.itemsPerPage = 2;
+                    this.totalPortfolios = 0;
                     this.isLoading = false;
-                    this.hideLoading();
                 }
-            }
 
-            displayPortfolios() {
-                const startIndex = (this.currentPage - 1) * this.itemsPerPage;
-                const endIndex = startIndex + this.itemsPerPage;
-                const portfoliosToShow = this.filteredPortfolios.slice(startIndex, endIndex);
+                async loadPortfolios(page = 1) {
+                    try {
+                        this.isLoading = true;
+                        this.showLoading();
 
-                const gridContainer = document.getElementById('portfoliosGrid');
-                gridContainer.innerHTML = '';
+                        // Updated path for GitHub Pages
+                        const response = await fetch('portfolios/portfolios.json');
+                        if (!response.ok) throw new Error('Failed to load portfolios');
 
-                portfoliosToShow.forEach(portfolio => {
-                    const card = this.createPortfolioCard(portfolio);
-                    gridContainer.appendChild(card);
-                });
-            }
+                        const data = await response.json();
+                        this.portfolios = data; // Store the loaded portfolios
+                        this.portfolios.sort((a, b) => new Date(b.date) - new Date(a.date));
 
-            createPortfolioCard(portfolio) {
-                const card = document.createElement('div');
-                card.className = 'portfolios-card';
-                // card.onclick = () => window.location.href = `./portfolios/${portfolio.id}/content.md`;
-                card.onclick = () => window.location.href = `portfolio-template.html?id=${portfolio.id}`;
+                        // Check for tag filter from URL 3
+                        const urlParams = new URLSearchParams(window.location.search);
+                        const tagFilter = urlParams.get('tag');
 
-                const date = new Date(portfolio.date);
-                const formattedDate = date.toLocaleDateString('en-US', {
-                    weekday: 'long',
-                    day: 'numeric',
-                    month: 'long',
-                    year: 'numeric'
-                });
+                        if (tagFilter) {
+                            // Clean the tag filter
+                            const cleanTagFilter = tagFilter.trim().replace(/^#?\s*/, '');
 
-                card.innerHTML = `
+                            // Filter portfolios by tag
+                            this.filteredPortfolios = this.portfolios.filter(portfolio =>
+                                portfolio.tags.some(tag =>
+                                    tag.toLowerCase() === cleanTagFilter.toLowerCase()
+                                )
+                            );
+
+                            // Set search input to the tag
+                            const searchInput = document.getElementById('search-input');
+                            if (searchInput) {
+                                searchInput.value = cleanTagFilter;
+                            }
+                        } else {
+                            this.filteredPortfolios = this.portfolios;
+                        }
+
+                        this.totalPortfolios = this.filteredPortfolios.length;
+                        this.currentPage = page;
+
+                        this.displayPortfolios();
+                        this.updatePagination();
+                    } catch (error) {
+                        this.showError('Failed to load portfolios. Please try again later.');
+                        console.error('Error:', error);
+                    } finally {
+                        this.isLoading = false;
+                        this.hideLoading();
+                    }
+                }
+
+                displayPortfolios() {
+                    const startIndex = (this.currentPage - 1) * this.itemsPerPage;
+                    const endIndex = startIndex + this.itemsPerPage;
+                    const portfoliosToShow = this.filteredPortfolios.slice(startIndex, endIndex);
+
+                    const gridContainer = document.getElementById('portfoliosGrid');
+                    gridContainer.innerHTML = '';
+
+                    portfoliosToShow.forEach(portfolio => {
+                        const card = this.createPortfolioCard(portfolio);
+                        gridContainer.appendChild(card);
+                    });
+                }
+
+                createPortfolioCard(portfolio) {
+                    const card = document.createElement('div');
+                    card.className = 'portfolios-card';
+                    // card.onclick = () => window.location.href = `./portfolios/${portfolio.id}/content.md`;
+                    card.onclick = () => window.location.href = `portfolio-template.html?id=${portfolio.id}`;
+
+                    const date = new Date(portfolio.date);
+                    const formattedDate = date.toLocaleDateString('en-US', {
+                        weekday: 'long',
+                        day: 'numeric',
+                        month: 'long',
+                        year: 'numeric'
+                    });
+
+                    card.innerHTML = `
                     <h3 class="portfolios-title">${portfolio.title}</h3>
                     <p class="portfolios-description">${portfolio.description}</p>
                     <p class="portfolios-date">${formattedDate}</p>
@@ -289,30 +297,30 @@
                     ` : ''}
                 `;
 
-                // Add click event listeners to tags
-                const tagElements = card.querySelectorAll('.tag');
-                tagElements.forEach(tag => {
-                    tag.addEventListener('click', (e) => {
-                        e.stopPropagation(); // Prevent card click
-                        const searchTerm = e.target.textContent.trim(); // Get tag text
-                        window.location.href = `portfolios.html?tag=${encodeURIComponent(searchTerm)}`;
+                    // Add click event listeners to tags
+                    const tagElements = card.querySelectorAll('.tag');
+                    tagElements.forEach(tag => {
+                        tag.addEventListener('click', (e) => {
+                            e.stopPropagation(); // Prevent card click
+                            const searchTerm = e.target.textContent.trim(); // Get tag text
+                            window.location.href = `portfolios.html?tag=${encodeURIComponent(searchTerm)}`;
 
+                        });
                     });
-                });
 
-                return card;
-            }
-
-            updatePagination() {
-                const totalPages = Math.ceil(this.totalPortfolios / this.itemsPerPage);
-                const container = document.getElementById('paginationContainer');
-
-                if (totalPages <= 1) {
-                    container.innerHTML = '';
-                    return;
+                    return card;
                 }
 
-                container.innerHTML = `
+                updatePagination() {
+                    const totalPages = Math.ceil(this.totalPortfolios / this.itemsPerPage);
+                    const container = document.getElementById('paginationContainer');
+
+                    if (totalPages <= 1) {
+                        container.innerHTML = '';
+                        return;
+                    }
+
+                    container.innerHTML = `
                     <button class="paginations-button" 
                             onclick="portfolioManager.loadPortfolios(${this.currentPage - 1})" 
                             ${this.currentPage === 1 ? 'disabled' : ''}>
@@ -325,124 +333,116 @@
                         Next
                     </button>
                 `;
-            }
-
-            generatePageNumbers(totalPages) {
-                let pages = '';
-                const maxButtons = 5;
-                let start = Math.max(1, this.currentPage - Math.floor(maxButtons / 2));
-                let end = Math.min(totalPages, start + maxButtons - 1);
-
-                if (end - start + 1 < maxButtons) {
-                    start = Math.max(1, end - maxButtons + 1);
                 }
 
-                for (let i = start; i <= end; i++) {
-                    pages += `
+                generatePageNumbers(totalPages) {
+                    let pages = '';
+                    const maxButtons = 5;
+                    let start = Math.max(1, this.currentPage - Math.floor(maxButtons / 2));
+                    let end = Math.min(totalPages, start + maxButtons - 1);
+
+                    if (end - start + 1 < maxButtons) {
+                        start = Math.max(1, end - maxButtons + 1);
+                    }
+
+                    for (let i = start; i <= end; i++) {
+                        pages += `
                         <button class="paginations-button ${i === this.currentPage ? 'active' : ''}" 
                                 onclick="portfolioManager.loadPortfolios(${i})">
                             ${i}
                         </button>
                     `;
+                    }
+
+                    return pages;
                 }
 
-                return pages;
-            }
-
-            showLoading() {
-                const grid = document.getElementById('portfoliosGrid');
-                grid.innerHTML = '<div class="loading"></div>';
-            }
-
-            hideLoading() {
-                const loading = document.querySelector('.loading');
-                if (loading) loading.remove();
-            }
-
-            showError(message) {
-                const grid = document.getElementById('portfoliosGrid');
-                grid.innerHTML = `<div class="error-message">${message}</div>`;
-            }
-
-            searchPortfolios(searchTerm) {
-                if (!searchTerm) {
-                    this.filteredPortfolios = this.portfolios;
-                } else {
-                    this.filteredPortfolios = this.portfolios.filter(portfolio =>
-                        portfolio.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
-                        portfolio.description.toLowerCase().includes(searchTerm.toLowerCase()) ||
-                        portfolio.tags.some(tag => tag.toLowerCase().includes(searchTerm.toLowerCase()))
-                    );
+                showLoading() {
+                    const grid = document.getElementById('portfoliosGrid');
+                    grid.innerHTML = '<div class="loading"></div>';
                 }
-                this.currentPage = 1;
-                this.displayPortfolios();
-                this.updatePagination();
-            }
-        }
 
-        // Initialize and load portfolios
-        const portfolioManager = new PortfolioManager();
-        document.addEventListener('DOMContentLoaded', () => {
-            portfolioManager.loadPortfolios();
-        });
+                hideLoading() {
+                    const loading = document.querySelector('.loading');
+                    if (loading) loading.remove();
+                }
 
-        // Search functionality
-        const searchInput = document.getElementById('search-input');
-        const searchResults = document.getElementById('search-results');
+                showError(message) {
+                    const grid = document.getElementById('portfoliosGrid');
+                    grid.innerHTML = `<div class="error-message">${message}</div>`;
+                }
 
-        searchInput.addEventListener('input', (e) => {
-            const searchTerm = e.target.value;
-
-            // Remove tag filter from URL if search is active
-            const urlParams = new URLSearchParams(window.location.search);
-            if (urlParams.has('tag')) {
-                urlParams.delete('tag');
-                window.history.replaceState({}, '', `${window.location.pathname}?${urlParams}`);
-            }
-
-            portfolioManager.searchPortfolios(searchTerm);
-        });
-
-        // searchInput.addEventListener('input', (e) => {
-        //     portfolioManager.searchPortfolios(e.target.value);
-        // });
-
-        // document.addEventListener('click', (e) => {
-        //     if (!searchInput.contains(e.target) && !searchResults.contains(e.target)) {
-        //         searchResults.classList.remove('active');
-        //     }
-        // });
-
-        document.addEventListener('DOMContentLoaded', () => {
-            const notificationBanner = document.getElementById('notification-banner');
-            const notificationCloseBtn = notificationBanner.querySelector('.notification-close');
-
-            function hasNotificationBeenShown() {
-                return localStorage.getItem('portfolioNotificationShown') === 'true';
-            }
-
-            function markNotificationAsShown() {
-                localStorage.setItem('portfolioNotificationShown', 'true');
-            }
-
-            function showNotification() {
-                if (!hasNotificationBeenShown()) {
-                    notificationBanner.classList.add('show');
-                    markNotificationAsShown();
+                searchPortfolios(searchTerm) {
+                    if (!searchTerm) {
+                        this.filteredPortfolios = this.portfolios;
+                    } else {
+                        this.filteredPortfolios = this.portfolios.filter(portfolio =>
+                            portfolio.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
+                            portfolio.description.toLowerCase().includes(searchTerm.toLowerCase()) ||
+                            portfolio.tags.some(tag => tag.toLowerCase().includes(searchTerm.toLowerCase()))
+                        );
+                    }
+                    this.currentPage = 1;
+                    this.displayPortfolios();
+                    this.updatePagination();
                 }
             }
 
-            function hideNotification() {
-                notificationBanner.classList.add('hide'); // Add hide class
-            }
+            // Initialize and load portfolios
+            const portfolioManager = new PortfolioManager();
+            document.addEventListener('DOMContentLoaded', () => {
+                portfolioManager.loadPortfolios();
+            });
 
-            // Show notification on page load
-            showNotification();
+            // Search functionality
+            const searchInput = document.getElementById('search-input');
+            const searchResults = document.getElementById('search-results');
 
-            // Close button event listener
-            notificationCloseBtn.addEventListener('click', hideNotification);
-        });
-    </script>
+            searchInput.addEventListener('input', (e) => {
+                const searchTerm = e.target.value;
+
+                // Remove tag filter from URL if search is active
+                const urlParams = new URLSearchParams(window.location.search);
+                if (urlParams.has('tag')) {
+                    urlParams.delete('tag');
+                    window.history.replaceState({}, '', `${window.location.pathname}?${urlParams}`);
+                }
+
+                portfolioManager.searchPortfolios(searchTerm);
+            });
+
+            // Notification script
+            document.addEventListener('DOMContentLoaded', () => {
+                const notificationBanner = document.getElementById('notification-banner');
+                const notificationCloseBtn = notificationBanner.querySelector('.notification-close');
+
+                function hasNotificationBeenShown() {
+                    return localStorage.getItem('portfolioNotificationShown') === 'true';
+                }
+
+                function markNotificationAsShown() {
+                    localStorage.setItem('portfolioNotificationShown', 'true');
+                }
+
+                function showNotification() {
+                    if (!hasNotificationBeenShown()) {
+                        notificationBanner.classList.add('show');
+                        markNotificationAsShown();
+                    }
+                }
+
+                function hideNotification() {
+                    // Remove the 'show' class to hide the notification
+                    notificationBanner.classList.remove('show');
+                }
+
+                // Show notification on page load
+                showNotification();
+
+                // Close button event listener
+                notificationCloseBtn.addEventListener('click', hideNotification);
+            });
+        </script>
 </body>
 
 </html>

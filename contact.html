@@ -63,10 +63,15 @@
     <!-- Language and Country -->
     <meta http-equiv="content-language" content="en-IN">
 
+    <!-- Google Font Family -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Spectral:wght@400;500;600;700&display=swap" rel="stylesheet">
+
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css"
         integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
-    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="css/style.css">
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
     <link rel="icon" type="image/png" sizes="32x32" href="favicon_io/favicon-32x32.png">
@@ -78,21 +83,29 @@
 </head>
 
 <body>
-    <!-- <header id="main-header"> -->
-    <nav class="navbar">
+    <nav class="navbar desktop-navbar">
         <ul>
             <li><a href="index.html" class="nav-link" rel="noopener noreferrer">Home</a></li>
             <li><a href="portfolios.html" class="nav-link" rel="noopener noreferrer">Portfolios</a></li>
             <li><a href="PranayJagtap.pdf" class="nav-link" target="_blank" rel="noopener noreferrer">CV/Resume</a></li>
             <li><a href="about.html" class="nav-link" rel="noopener noreferrer">About</a></li>
             <li><a href="contact.html" class="nav-link" rel="noopener noreferrer">Contact</a></li>
-            <!-- <li class="search-container">
-                <input type="text" class="search-input" placeholder="Search portfolios...">
-                <div class="search-results"></div>
-            </li> -->
         </ul>
     </nav>
-    <!-- </header> -->
+
+    <nav class="navbar mobile-navbar">
+        <input type="checkbox" id="menu-toggle" />
+        <label for="menu-toggle" class="menu-toggle">
+            <i class="fa-solid fa-bars"></i>
+        </label>
+        <ul class="mobile-navbar-menu">
+            <li><a href="index.html" class="nav-link">Home</a></li>
+            <li><a href="portfolios.html" class="nav-link">Portfolios</a></li>
+            <li><a href="PranayJagtap.pdf" class="nav-link" target="_blank">CV/Resume</a></li>
+            <li><a href="about.html" class="nav-link">About</a></li>
+            <li><a href="contact.html" class="nav-link">Contact</a></li>
+        </ul>
+    </nav>
 
     <main>
         <div class="container padding">
@@ -172,16 +185,35 @@
 
     <!-- <div id="notification-container"></div> -->
 
-    <script src="/js/nav-script.js"></script>
-    <!-- <script src="send_message.js"></script> -->
-    <!-- <script src="https://cdn.emailjs.com/dist/email.min.js"></script> -->
+    <script src="js/nav-script.js"></script>
     <script>
         document.addEventListener('DOMContentLoaded', function () {
-            const container = document.querySelector('.container');
+            const menuToggle = document.getElementById('menu-toggle');
+            const mobileNavbarMenu = document.querySelector('.mobile-navbar-menu');
 
-            // Set the height of the container to enable scrolling
-            container.style.height = '300px'; // Set a specific height
-            container.style.overflowY = 'auto'; // Enable vertical scrolling
+            // Ensure menu is closed by default
+            mobileNavbarMenu.style.display = 'none';
+
+            // Toggle menu when clicking the hamburger icon
+            menuToggle.addEventListener('change', (e) => {
+                mobileNavbarMenu.style.display = menuToggle.checked ? 'flex' : 'none';
+            });
+
+            // Close menu when clicking outside
+            document.addEventListener('click', (e) => {
+                if (!e.target.closest('.mobile-navbar')) {
+                    mobileNavbarMenu.style.display = 'none';
+                    menuToggle.checked = false;
+                }
+            });
+
+            // Close menu when menu item is clicked
+            mobileNavbarMenu.addEventListener('click', (e) => {
+                if (e.target.tagName === 'A') {
+                    mobileNavbarMenu.style.display = 'none';
+                    menuToggle.checked = false;
+                }
+            });
         });
     </script>
 </body>
