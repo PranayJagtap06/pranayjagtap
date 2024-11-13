@@ -282,7 +282,7 @@ body {
 .container {
   backdrop-filter: blur(10px);
   min-width: 100vw;
-  max-height: 100vh;
+  max-height: 95vh;
   width: 100%;
   margin: 0;
   padding: 0;
@@ -436,7 +436,7 @@ a.nav-link.active {
   }
 
   .container {
-    height: 1000px;
+    height: 100vh;
     overflow-y: auto;
   }
 }
@@ -453,7 +453,7 @@ a.nav-link.active {
   }
 
   .container {
-    height: 700px;
+    height: 100vh;
     overflow-y: auto;
   }
 }
@@ -733,10 +733,12 @@ h3.location {
 .portfolios-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  /* grid-template-columns: 1fr 1fr; */
   gap: 2rem;
   padding: 2rem 0.5rem;
   width: 100%;
   max-width: 1200px;
+  margin-bottom: 20px;
 }
 
 .portfolios-card {
@@ -937,7 +939,7 @@ h3.location {
 /* Main content */
 .portfolio-container {
   overflow-y: auto;
-  height: 100vh;
+  height: 95vh;
   padding-bottom: 20px;
   /* min-width: 900px; */
   margin: auto;
@@ -1080,7 +1082,7 @@ th {
 
 @media (max-width: 768px) {
   .portfolio-container {
-    height: 700px;
+    height: 100vh;
     overflow-y: auto;
     width: 100vw;
   }
@@ -1092,7 +1094,7 @@ th {
 
   .portfolio-navigation {
     padding: 0;
-    margin: 1rem 20px;
+    margin: 1rem 20px 4rem 20px;
   }
 
   .portfolio-title {
