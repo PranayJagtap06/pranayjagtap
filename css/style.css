@@ -1086,8 +1086,8 @@ th {
   }
 
   .portfolio-content {
-    padding: 5px 5px;
-    margin: 0 5px;
+    padding: 5px 10px;
+    margin: 0 10px;
   }
 
   .portfolio-navigation {
@@ -1096,7 +1096,8 @@ th {
   }
 
   .portfolio-title {
-    font-size: 2-rem;
+    font-size: 2rem;
+    padding: 0 1px;
     margin-bottom: 1rem;
     text-align: center;
   }

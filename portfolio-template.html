@@ -265,7 +265,7 @@
                     const tagsContainer = document.createElement('div');
                     tagsContainer.classList.add('tags-container');
                     const tagsHtml = meta.tags.map(tag => `<span class="tag"><i class="fa-solid fa-tag"></i> ${tag}</span>`).join('');
-                    tagsContainer.innerHTML = `<p><i class="fa-solid fa-hashtag"></i> ${tagsHtml}</p>`;
+                    tagsContainer.innerHTML = `${tagsHtml}`;
                     portfolioContent.appendChild(tagsContainer);
 
                     const searchInput = document.querySelector('.search-input');
