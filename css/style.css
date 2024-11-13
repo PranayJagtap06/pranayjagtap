@@ -435,7 +435,7 @@ a.nav-link.active {
   }
 
   .container {
-    height: 100vh;
+    height: 100lvh;
     overflow-y: auto;
   }
 }
@@ -452,7 +452,7 @@ a.nav-link.active {
   }
 
   .container {
-    height: 100vh;
+    height: 100lvh;
     overflow-y: auto;
   }
 }
@@ -736,7 +736,7 @@ h3.location {
   gap: 2rem;
   padding: 2rem 0.5rem;
   width: 100%;
-  max-width: 1200px;
+  max-width: 100vh;
   margin-bottom: 20px;
 }
 
@@ -1081,7 +1081,7 @@ th {
 
 @media (max-width: 768px) {
   .portfolio-container {
-    height: 100vh;
+    height: 100lvh;
     overflow-y: auto;
     width: 100vw;
   }
