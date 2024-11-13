@@ -354,7 +354,7 @@ body {
   transition: color 0.3s ease;
 }
 
-.nav-link.active {
+a.nav-link.active {
   font-weight: bold;
   color: #054958;
   text-decoration: none;
