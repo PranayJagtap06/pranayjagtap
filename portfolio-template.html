@@ -277,21 +277,6 @@
                             e.stopPropagation(); // Prevent parent element events
                             const searchTerm = e.target.textContent.trim(); // Get tag text
                             window.location.href = `portfolios.html?tag=${encodeURIComponent(searchTerm)}`;
-                            // const searchInput = document.getElementById('search-input');
-                            // searchInput.value = searchTerm;
-                            // searchInput.focus();
-
-                            // // Filter portfolios by tag
-                            // portfolioManager.filteredPortfolios = portfolioManager.portfolios.filter(portfolio =>
-                            //     portfolio.tags.some(tag => tag.toLowerCase() === searchTerm.toLowerCase())
-                            // );
-
-                            // portfolioManager.currentPage = 1;
-                            // portfolioManager.displayPortfolios();
-                            // portfolioManager.updatePagination();
-
-                            // const searchResults = document.getElementById('search-results');
-                            // searchResults.classList.add('active');
                         });
                     });
 
@@ -422,15 +407,6 @@
             });
         });
     </script>
-    <!-- <script>
-        document.addEventListener('DOMContentLoaded', function () {
-            const container = document.querySelector('.container');
-
-            // Set the height of the container to enable scrolling
-            container.style.height = '300px'; // Set a specific height
-            container.style.overflowY = 'auto'; // Enable vertical scrolling
-        });
-    </script> -->
 </body>
 
 </html>

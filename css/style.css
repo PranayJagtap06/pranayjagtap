@@ -419,18 +419,20 @@ body {
   z-index: 1000;
 }
 
-#menu-toggle:checked + .menu-toggle + .mobile-navbar-menu {
+#menu-toggle:checked+.menu-toggle+.mobile-navbar-menu {
   display: none;
 }
 
 /* Media Queries */
 @media (min-width: 769px) {
   .desktop-navbar {
-    display: flex;  /* Show desktop navbar on larger screens */
+    display: flex;
+    /* Show desktop navbar on larger screens */
   }
-  
+
   .mobile-navbar {
-    display: none;  /* Hide mobile navbar on larger screens */
+    display: none;
+    /* Hide mobile navbar on larger screens */
   }
 
   .container {
@@ -441,11 +443,13 @@ body {
 
 @media (max-width: 768px) {
   .desktop-navbar {
-    display: none;  /* Hide desktop navbar on smaller screens */
+    display: none;
+    /* Hide desktop navbar on smaller screens */
   }
-  
+
   .mobile-navbar {
-    display: flex;  /* Show mobile navbar on smaller screens */
+    display: flex;
+    /* Show mobile navbar on smaller screens */
   }
 
   .container {
@@ -667,11 +671,13 @@ h3.location {
   }
 
   .circle {
-    margin: 20px;  /* Further reduce margin on mobile */
+    margin: 20px;
+    /* Further reduce margin on mobile */
   }
 
   .circle img {
-    height: 250px;  /* Adjust size for mobile */
+    height: 250px;
+    /* Adjust size for mobile */
     width: 250px;
   }
 
@@ -696,12 +702,14 @@ h3.location {
 /* Even smaller screens */
 @media (max-width: 480px) {
   .circle img {
-    height: 200px;  /* Even smaller for very small screens */
+    height: 200px;
+    /* Even smaller for very small screens */
     width: 200px;
   }
 
   h1 {
-    font-size: 2rem;  /* Adjust heading size for mobile */
+    font-size: 2rem;
+    /* Adjust heading size for mobile */
   }
 
   h3.location {
@@ -715,7 +723,7 @@ h3.location {
     min-height: auto;
     padding: 80px 0;
   }
-  
+
   .circle {
     margin: 15px;
   }
@@ -791,7 +799,7 @@ h3.location {
 .notification-banner {
   /* display: none; */
   position: fixed;
-  top: 0;
+  top: 50;
   left: 0;
   width: 100%;
   background: rgba(5, 73, 88, 0.9);
@@ -801,21 +809,11 @@ h3.location {
   border-bottom: 1px solid rgba(255, 255, 255, 0.1);
   z-index: 1000;
   overflow: hidden;
-  max-height: 0; /* Hidden by default */
-  padding: 0; /* Hide content by default */
   transition: max-height 0.3s ease-in-out, opacity 0.3s ease-in-out, padding 0.3s ease-in-out;
 }
 
-.notification-banner.show {
-  max-height: 50px;
-  padding: 10px 0;
-  opacity: 1;
-}
-
 .notification-banner.hide {
-  max-height: 0px;
-  padding: 0px;
-  opacity: 0;
+  display: none;
 }
 
 .notification-content-container {
@@ -856,29 +854,38 @@ h3.location {
 
 /* Search functionality */
 .search-container {
+  display: flex;
+  padding: 1rem 0;
   position: relative;
-  margin-left: 10px;
+  align-items: center;
+  justify-content: center;
+  backdrop-filter: blur(10px);
+  background-color: radial-gradient(circle at 77% 50%, #054958 0%, #000000 79%);
 }
 
 .search-input {
   background: rgba(78, 78, 78, 0.1);
-  border: 1px solid rgba(0, 0, 0, 0.5);
+  border: 1px solid rgba(255, 255, 255, 1);
   border-radius: 20px;
   padding: 0 0.5rem;
-  color: black;
-  width: 200px;
+  color: rgb(255, 255, 255);
+  width: 600px;
   transition: all 0.3s ease;
 }
 
 .search-input:focus {
   background: rgba(27, 27, 27, 0.15);
   outline: none;
-  width: 300px;
+  width: 650px;
 }
 
-@media (min-width: 769px) {
+@media (max-width: 768px) {
   .search-input {
-    margin-top: 7.5px;
+    width: 300px;
+  }
+
+  .search-input:focus {
+    width: 350px;
   }
 }
 
@@ -1093,7 +1100,7 @@ th {
     margin-bottom: 1rem;
     text-align: center;
   }
-  
+
   .portfolio-date {
     font-size: 1.1rem;
     opacity: 1;
@@ -1156,9 +1163,8 @@ th {
   background-color: rgba(255, 255, 255, 0.1);
   padding: 1rem;
   border-radius: 20px;
-  text-align: center;
-  /* margin-bottom: 2rem; */
-  width: 90%;
+  text-align: left;
+  width: 95%;
   max-width: fit-content;
 }
 
@@ -1210,7 +1216,7 @@ th {
     max-width: 1000px;
     padding-bottom: 30px;
   }
-  
+
   .contact-info {
     grid-column: 1 / -1;
     text-align: center;
@@ -1219,7 +1225,7 @@ th {
     justify-content: center;
     /* padding: 1rem; */
   }
-  
+
   .contact-details {
     grid-column: 2 / -2;
     display: flex;

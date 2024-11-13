@@ -120,173 +120,173 @@
 
 <body>
 
-    <<nav class="navbar desktop-navbar">
+    <nav class="navbar desktop-navbar">
         <ul>
             <li><a href="index.html" class="nav-link" rel="noopener noreferrer">Home</a></li>
             <li><a href="portfolios.html" class="nav-link" rel="noopener noreferrer">Portfolios</a></li>
             <li><a href="PranayJagtap.pdf" class="nav-link" target="_blank" rel="noopener noreferrer">CV/Resume</a></li>
             <li><a href="about.html" class="nav-link" rel="noopener noreferrer">About</a></li>
             <li><a href="contact.html" class="nav-link" rel="noopener noreferrer">Contact</a></li>
-            <li class="search-container">
+            <!-- <li class="search-container">
                 <input type="text" class="search-input" id="search-input" placeholder="🔍 Search portfolios...">
                 <div class="search-results" id="search-results"></div>
-            </li>
+            </li> -->
         </ul>
-        </nav>
+    </nav>
 
-        <nav class="navbar mobile-navbar">
-            <input type="checkbox" id="menu-toggle" />
-            <label for="menu-toggle" class="menu-toggle">
-                <i class="fa-solid fa-bars"></i>
-            </label>
-            <ul class="mobile-navbar-menu">
-                <li><a href="index.html" class="nav-link">Home</a></li>
-                <li><a href="portfolios.html" class="nav-link">Portfolios</a></li>
-                <li><a href="PranayJagtap.pdf" class="nav-link" target="_blank">CV/Resume</a></li>
-                <li><a href="about.html" class="nav-link">About</a></li>
-                <li><a href="contact.html" class="nav-link">Contact</a></li>
-                <li class="search-container">
-                    <input type="text" class="search-input" id="search-input" placeholder="🔍 Search portfolios...">
-                    <div class="search-results" id="search-results"></div>
-                </li>
-            </ul>
-        </nav>
+    <nav class="navbar mobile-navbar">
+        <input type="checkbox" id="menu-toggle" />
+        <label for="menu-toggle" class="menu-toggle">
+            <i class="fa-solid fa-bars"></i>
+        </label>
+        <ul class="mobile-navbar-menu">
+            <li><a href="index.html" class="nav-link">Home</a></li>
+            <li><a href="portfolios.html" class="nav-link">Portfolios</a></li>
+            <li><a href="PranayJagtap.pdf" class="nav-link" target="_blank">CV/Resume</a></li>
+            <li><a href="about.html" class="nav-link">About</a></li>
+            <li><a href="contact.html" class="nav-link">Contact</a></li>
+        </ul>
+    </nav>
+    <div id="notification-banner" class="notification-banner">
+        <div class="notification-content-container">
+            <span class="notification-text"><em>PyTorch & NLP projects coming soon...</em></span>
+            <button class="notification-close" aria-label="Close notification">&times;</button>
+        </div>
+    </div>
+    <main>
+        <header class="search-container">
+            <input type="text" class="search-input" id="search-input" placeholder="🔍 Search portfolios...">
+            <div class="search-results" id="search-results"></div>
+        </header>
+        <div class="container padding">
 
-        <main>
-            <div id="notification-banner" class="notification-banner">
-                <div class="notification-content-container">
-                    <span class="notification-text"><em>PyTorch & NLP projects coming soon...</em></span>
-                    <button class="notification-close" aria-label="Close notification">&times;</button>
-                </div>
-            </div>
-            <div class="container padding">
-                <div class="portfolios-grid" id="portfoliosGrid"></div>
-                <div class="pagination-container" id="paginationContainer"></div>
-            </div>
-        </main>
+            <div class="portfolios-grid" id="portfoliosGrid"></div>
+            <div class="pagination-container" id="paginationContainer"></div>
+        </div>
+    </main>
 
-        <script src="js/nav-script.js"></script>
-        <script>
-            document.addEventListener('DOMContentLoaded', function () {
-                const menuToggle = document.getElementById('menu-toggle');
-                const mobileNavbarMenu = document.querySelector('.mobile-navbar-menu');
+    <script src="js/nav-script.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const menuToggle = document.getElementById('menu-toggle');
+            const mobileNavbarMenu = document.querySelector('.mobile-navbar-menu');
 
-                // Ensure menu is closed by default
-                mobileNavbarMenu.style.display = 'none';
+            // Ensure menu is closed by default
+            mobileNavbarMenu.style.display = 'none';
 
-                // Toggle menu when clicking the hamburger icon
-                menuToggle.addEventListener('change', (e) => {
-                    mobileNavbarMenu.style.display = menuToggle.checked ? 'flex' : 'none';
-                });
-
-                // Close menu when clicking outside
-                document.addEventListener('click', (e) => {
-                    if (!e.target.closest('.mobile-navbar')) {
-                        mobileNavbarMenu.style.display = 'none';
-                        menuToggle.checked = false;
-                    }
-                });
-
-                // Close menu when menu item is clicked
-                mobileNavbarMenu.addEventListener('click', (e) => {
-                    if (e.target.tagName === 'A') {
-                        mobileNavbarMenu.style.display = 'none';
-                        menuToggle.checked = false;
-                    }
-                });
+            // Toggle menu when clicking the hamburger icon
+            menuToggle.addEventListener('change', (e) => {
+                mobileNavbarMenu.style.display = menuToggle.checked ? 'flex' : 'none';
             });
-        </script>
-        <script>
-            class PortfolioManager {
-                constructor() {
-                    this.portfolios = [];
-                    this.filteredPortfolios = [];
-                    this.currentPage = 1;
-                    this.itemsPerPage = 2;
-                    this.totalPortfolios = 0;
-                    this.isLoading = false;
+
+            // Close menu when clicking outside
+            document.addEventListener('click', (e) => {
+                if (!e.target.closest('.mobile-navbar')) {
+                    mobileNavbarMenu.style.display = 'none';
+                    menuToggle.checked = false;
                 }
+            });
 
-                async loadPortfolios(page = 1) {
-                    try {
-                        this.isLoading = true;
-                        this.showLoading();
+            // Close menu when menu item is clicked
+            mobileNavbarMenu.addEventListener('click', (e) => {
+                if (e.target.tagName === 'A') {
+                    mobileNavbarMenu.style.display = 'none';
+                    menuToggle.checked = false;
+                }
+            });
+        });
+    </script>
+    <script>
+        class PortfolioManager {
+            constructor() {
+                this.portfolios = [];
+                this.filteredPortfolios = [];
+                this.currentPage = 1;
+                this.itemsPerPage = 6;
+                this.totalPortfolios = 0;
+                this.isLoading = false;
+            }
 
-                        // Updated path for GitHub Pages
-                        const response = await fetch('portfolios/portfolios.json');
-                        if (!response.ok) throw new Error('Failed to load portfolios');
+            async loadPortfolios(page = 1) {
+                try {
+                    this.isLoading = true;
+                    this.showLoading();
 
-                        const data = await response.json();
-                        this.portfolios = data; // Store the loaded portfolios
-                        this.portfolios.sort((a, b) => new Date(b.date) - new Date(a.date));
+                    // Updated path for GitHub Pages
+                    const response = await fetch('portfolios/portfolios.json');
+                    if (!response.ok) throw new Error('Failed to load portfolios');
 
-                        // Check for tag filter from URL 3
-                        const urlParams = new URLSearchParams(window.location.search);
-                        const tagFilter = urlParams.get('tag');
+                    const data = await response.json();
+                    this.portfolios = data; // Store the loaded portfolios
+                    this.portfolios.sort((a, b) => new Date(b.date) - new Date(a.date));
 
-                        if (tagFilter) {
-                            // Clean the tag filter
-                            const cleanTagFilter = tagFilter.trim().replace(/^#?\s*/, '');
+                    // Check for tag filter from URL 3
+                    const urlParams = new URLSearchParams(window.location.search);
+                    const tagFilter = urlParams.get('tag');
 
-                            // Filter portfolios by tag
-                            this.filteredPortfolios = this.portfolios.filter(portfolio =>
-                                portfolio.tags.some(tag =>
-                                    tag.toLowerCase() === cleanTagFilter.toLowerCase()
-                                )
-                            );
+                    if (tagFilter) {
+                        // Clean the tag filter
+                        const cleanTagFilter = tagFilter.trim().replace(/^#?\s*/, '');
 
-                            // Set search input to the tag
-                            const searchInput = document.getElementById('search-input');
-                            if (searchInput) {
-                                searchInput.value = cleanTagFilter;
-                            }
-                        } else {
-                            this.filteredPortfolios = this.portfolios;
+                        // Filter portfolios by tag
+                        this.filteredPortfolios = this.portfolios.filter(portfolio =>
+                            portfolio.tags.some(tag =>
+                                tag.toLowerCase() === cleanTagFilter.toLowerCase()
+                            )
+                        );
+
+                        // Set search input to the tag
+                        const searchInput = document.getElementById('search-input');
+                        if (searchInput) {
+                            searchInput.value = cleanTagFilter;
                         }
-
-                        this.totalPortfolios = this.filteredPortfolios.length;
-                        this.currentPage = page;
-
-                        this.displayPortfolios();
-                        this.updatePagination();
-                    } catch (error) {
-                        this.showError('Failed to load portfolios. Please try again later.');
-                        console.error('Error:', error);
-                    } finally {
-                        this.isLoading = false;
-                        this.hideLoading();
+                    } else {
+                        this.filteredPortfolios = this.portfolios;
                     }
+
+                    this.totalPortfolios = this.filteredPortfolios.length;
+                    this.currentPage = page;
+
+                    this.displayPortfolios();
+                    this.updatePagination();
+                } catch (error) {
+                    this.showError('Failed to load portfolios. Please try again later.');
+                    console.error('Error:', error);
+                } finally {
+                    this.isLoading = false;
+                    this.hideLoading();
                 }
+            }
 
-                displayPortfolios() {
-                    const startIndex = (this.currentPage - 1) * this.itemsPerPage;
-                    const endIndex = startIndex + this.itemsPerPage;
-                    const portfoliosToShow = this.filteredPortfolios.slice(startIndex, endIndex);
+            displayPortfolios() {
+                const startIndex = (this.currentPage - 1) * this.itemsPerPage;
+                const endIndex = startIndex + this.itemsPerPage;
+                const portfoliosToShow = this.filteredPortfolios.slice(startIndex, endIndex);
 
-                    const gridContainer = document.getElementById('portfoliosGrid');
-                    gridContainer.innerHTML = '';
+                const gridContainer = document.getElementById('portfoliosGrid');
+                gridContainer.innerHTML = '';
 
-                    portfoliosToShow.forEach(portfolio => {
-                        const card = this.createPortfolioCard(portfolio);
-                        gridContainer.appendChild(card);
-                    });
-                }
+                portfoliosToShow.forEach(portfolio => {
+                    const card = this.createPortfolioCard(portfolio);
+                    gridContainer.appendChild(card);
+                });
+            }
 
-                createPortfolioCard(portfolio) {
-                    const card = document.createElement('div');
-                    card.className = 'portfolios-card';
-                    // card.onclick = () => window.location.href = `./portfolios/${portfolio.id}/content.md`;
-                    card.onclick = () => window.location.href = `portfolio-template.html?id=${portfolio.id}`;
+            createPortfolioCard(portfolio) {
+                const card = document.createElement('div');
+                card.className = 'portfolios-card';
+                // card.onclick = () => window.location.href = `./portfolios/${portfolio.id}/content.md`;
+                card.onclick = () => window.location.href = `portfolio-template.html?id=${portfolio.id}`;
 
-                    const date = new Date(portfolio.date);
-                    const formattedDate = date.toLocaleDateString('en-US', {
-                        weekday: 'long',
-                        day: 'numeric',
-                        month: 'long',
-                        year: 'numeric'
-                    });
+                const date = new Date(portfolio.date);
+                const formattedDate = date.toLocaleDateString('en-US', {
+                    weekday: 'long',
+                    day: 'numeric',
+                    month: 'long',
+                    year: 'numeric'
+                });
 
-                    card.innerHTML = `
+                card.innerHTML = `
                     <h3 class="portfolios-title">${portfolio.title}</h3>
                     <p class="portfolios-description">${portfolio.description}</p>
                     <p class="portfolios-date">${formattedDate}</p>
@@ -297,30 +297,30 @@
                     ` : ''}
                 `;
 
-                    // Add click event listeners to tags
-                    const tagElements = card.querySelectorAll('.tag');
-                    tagElements.forEach(tag => {
-                        tag.addEventListener('click', (e) => {
-                            e.stopPropagation(); // Prevent card click
-                            const searchTerm = e.target.textContent.trim(); // Get tag text
-                            window.location.href = `portfolios.html?tag=${encodeURIComponent(searchTerm)}`;
+                // Add click event listeners to tags
+                const tagElements = card.querySelectorAll('.tag');
+                tagElements.forEach(tag => {
+                    tag.addEventListener('click', (e) => {
+                        e.stopPropagation(); // Prevent card click
+                        const searchTerm = e.target.textContent.trim(); // Get tag text
+                        window.location.href = `portfolios.html?tag=${encodeURIComponent(searchTerm)}`;
 
-                        });
                     });
+                });
 
-                    return card;
+                return card;
+            }
+
+            updatePagination() {
+                const totalPages = Math.ceil(this.totalPortfolios / this.itemsPerPage);
+                const container = document.getElementById('paginationContainer');
+
+                if (totalPages <= 1) {
+                    container.innerHTML = '';
+                    return;
                 }
 
-                updatePagination() {
-                    const totalPages = Math.ceil(this.totalPortfolios / this.itemsPerPage);
-                    const container = document.getElementById('paginationContainer');
-
-                    if (totalPages <= 1) {
-                        container.innerHTML = '';
-                        return;
-                    }
-
-                    container.innerHTML = `
+                container.innerHTML = `
                     <button class="paginations-button" 
                             onclick="portfolioManager.loadPortfolios(${this.currentPage - 1})" 
                             ${this.currentPage === 1 ? 'disabled' : ''}>
@@ -333,116 +333,115 @@
                         Next
                     </button>
                 `;
+            }
+
+            generatePageNumbers(totalPages) {
+                let pages = '';
+                const maxButtons = 5;
+                let start = Math.max(1, this.currentPage - Math.floor(maxButtons / 2));
+                let end = Math.min(totalPages, start + maxButtons - 1);
+
+                if (end - start + 1 < maxButtons) {
+                    start = Math.max(1, end - maxButtons + 1);
                 }
 
-                generatePageNumbers(totalPages) {
-                    let pages = '';
-                    const maxButtons = 5;
-                    let start = Math.max(1, this.currentPage - Math.floor(maxButtons / 2));
-                    let end = Math.min(totalPages, start + maxButtons - 1);
-
-                    if (end - start + 1 < maxButtons) {
-                        start = Math.max(1, end - maxButtons + 1);
-                    }
-
-                    for (let i = start; i <= end; i++) {
-                        pages += `
+                for (let i = start; i <= end; i++) {
+                    pages += `
                         <button class="paginations-button ${i === this.currentPage ? 'active' : ''}" 
                                 onclick="portfolioManager.loadPortfolios(${i})">
                             ${i}
                         </button>
                     `;
-                    }
-
-                    return pages;
                 }
 
-                showLoading() {
-                    const grid = document.getElementById('portfoliosGrid');
-                    grid.innerHTML = '<div class="loading"></div>';
-                }
+                return pages;
+            }
 
-                hideLoading() {
-                    const loading = document.querySelector('.loading');
-                    if (loading) loading.remove();
-                }
+            showLoading() {
+                const grid = document.getElementById('portfoliosGrid');
+                grid.innerHTML = '<div class="loading"></div>';
+            }
 
-                showError(message) {
-                    const grid = document.getElementById('portfoliosGrid');
-                    grid.innerHTML = `<div class="error-message">${message}</div>`;
-                }
+            hideLoading() {
+                const loading = document.querySelector('.loading');
+                if (loading) loading.remove();
+            }
 
-                searchPortfolios(searchTerm) {
-                    if (!searchTerm) {
-                        this.filteredPortfolios = this.portfolios;
-                    } else {
-                        this.filteredPortfolios = this.portfolios.filter(portfolio =>
-                            portfolio.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
-                            portfolio.description.toLowerCase().includes(searchTerm.toLowerCase()) ||
-                            portfolio.tags.some(tag => tag.toLowerCase().includes(searchTerm.toLowerCase()))
-                        );
-                    }
-                    this.currentPage = 1;
-                    this.displayPortfolios();
-                    this.updatePagination();
+            showError(message) {
+                const grid = document.getElementById('portfoliosGrid');
+                grid.innerHTML = `<div class="error-message">${message}</div>`;
+            }
+
+            searchPortfolios(searchTerm) {
+                if (!searchTerm) {
+                    this.filteredPortfolios = this.portfolios;
+                } else {
+                    this.filteredPortfolios = this.portfolios.filter(portfolio =>
+                        portfolio.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
+                        portfolio.description.toLowerCase().includes(searchTerm.toLowerCase()) ||
+                        portfolio.tags.some(tag => tag.toLowerCase().includes(searchTerm.toLowerCase()))
+                    );
+                }
+                this.currentPage = 1;
+                this.displayPortfolios();
+                this.updatePagination();
+            }
+        }
+
+        // Initialize and load portfolios
+        const portfolioManager = new PortfolioManager();
+        document.addEventListener('DOMContentLoaded', () => {
+            portfolioManager.loadPortfolios();
+        });
+
+        // Search functionality
+        const searchInput = document.getElementById('search-input');
+        const searchResults = document.getElementById('search-results');
+
+        searchInput.addEventListener('input', (e) => {
+            const searchTerm = e.target.value;
+
+            // Remove tag filter from URL if search is active
+            const urlParams = new URLSearchParams(window.location.search);
+            if (urlParams.has('tag')) {
+                urlParams.delete('tag');
+                window.history.replaceState({}, '', `${window.location.pathname}?${urlParams}`);
+            }
+
+            portfolioManager.searchPortfolios(searchTerm);
+        });
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const notificationBanner = document.getElementById('notification-banner');
+            const notificationCloseBtn = notificationBanner.querySelector('.notification-close');
+
+            function hasNotificationBeenShown() {
+                return localStorage.getItem('portfolioNotificationShown') === 'true';
+            }
+
+            function markNotificationAsShown() {
+                localStorage.setItem('portfolioNotificationShown', 'true');
+            }
+
+            function showNotification() {
+                if (!hasNotificationBeenShown()) {
+                    notificationBanner.classList.add('show');
+                    markNotificationAsShown();
                 }
             }
 
-            // Initialize and load portfolios
-            const portfolioManager = new PortfolioManager();
-            document.addEventListener('DOMContentLoaded', () => {
-                portfolioManager.loadPortfolios();
-            });
+            function hideNotification() {
+                notificationBanner.classList.add('hide'); // Add hide class
+            }
 
-            // Search functionality
-            const searchInput = document.getElementById('search-input');
-            const searchResults = document.getElementById('search-results');
+            // Show notification on page load
+            showNotification();
 
-            searchInput.addEventListener('input', (e) => {
-                const searchTerm = e.target.value;
+            // Close button event listener
+            notificationCloseBtn.addEventListener('click', hideNotification);
+        });
 
-                // Remove tag filter from URL if search is active
-                const urlParams = new URLSearchParams(window.location.search);
-                if (urlParams.has('tag')) {
-                    urlParams.delete('tag');
-                    window.history.replaceState({}, '', `${window.location.pathname}?${urlParams}`);
-                }
-
-                portfolioManager.searchPortfolios(searchTerm);
-            });
-
-            // Notification script
-            document.addEventListener('DOMContentLoaded', () => {
-                const notificationBanner = document.getElementById('notification-banner');
-                const notificationCloseBtn = notificationBanner.querySelector('.notification-close');
-
-                function hasNotificationBeenShown() {
-                    return localStorage.getItem('portfolioNotificationShown') === 'true';
-                }
-
-                function markNotificationAsShown() {
-                    localStorage.setItem('portfolioNotificationShown', 'true');
-                }
-
-                function showNotification() {
-                    if (!hasNotificationBeenShown()) {
-                        notificationBanner.classList.add('show');
-                        markNotificationAsShown();
-                    }
-                }
-
-                function hideNotification() {
-                    // Remove the 'show' class to hide the notification
-                    notificationBanner.classList.remove('show');
-                }
-
-                // Show notification on page load
-                showNotification();
-
-                // Close button event listener
-                notificationCloseBtn.addEventListener('click', hideNotification);
-            });
-        </script>
+    </script>
 </body>
 
 </html>
