@@ -846,7 +846,7 @@ h3.location {
   color: #ffffff;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
   border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-  z-index: 1000;
+  z-index: 990;
   overflow: hidden;
   transition: max-height 0.3s ease-in-out, opacity 0.3s ease-in-out, padding 0.3s ease-in-out;
 }
