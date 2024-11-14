@@ -1303,13 +1303,13 @@ h3.location {
 }
 
 @media (max-width: 480px) {
-  .search {
+  /* .search {
     padding: 0.5rem;
-  }
+  } */
 
-  .search-container {
+  /* .search-container {
     padding: 0.25rem;
-  }
+  } */
 
   .search-input {
     /* width: 200px; */
