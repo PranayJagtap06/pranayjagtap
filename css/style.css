@@ -573,18 +573,30 @@ p {
 
 .tag {
   flex-shrink: 0;
-  color: #054958;
-  padding-right: 1%;
-  background-color: rgba(255, 255, 255, 0.724);
-  padding: 5px 10px;
-  border-radius: 20px;
+  /* color: #054958; */
+  /* padding-right: 1%; */
+  /* background-color: rgba(255, 255, 255, 0.724); */
+  /* padding: 5px 10px; */
+  /* border-radius: 20px; */
   margin: 5px;
+  /* cursor: pointer; */
+  background: rgba(255, 255, 255, 0.9);
+  color: #054958;
+  padding: 6px 12px;
+  border-radius: 20px;
+  font-size: 0.9rem;
   cursor: pointer;
+  transition: all 0.2s ease;
+  border: 1px solid rgb(255, 255, 255);
 }
 
 .tag:hover {
-  background-color: #eee;
+  /* background-color: #eee;
+  transform: translateY(-1px); */
+  color: #ffffff;
+  background: rgba(5, 73, 88, 0);
   transform: translateY(-1px);
+  backdrop-filter: blur(10px);
 }
 
 .tag.active {
@@ -1121,16 +1133,15 @@ h3.location {
 }
 
 .search-container {
-  width: 515px;
-  max-width: 800px;
+  /* width: 75%; */
   display: flex;
   padding: 0.5rem;
   position: relative;
   align-items: center;
   justify-content: center;
-  backdrop-filter: blur(10px);
-  border-radius: 25px;
-  background: rgba(255, 255, 255, 0.1);
+  /* backdrop-filter: blur(10px); */
+  /* border-radius: 25px; */
+  /* background: rgba(255, 255, 255, 0.1); */
 }
 
 .search-wrapper {
@@ -1271,32 +1282,35 @@ h3.location {
 
 /* Responsive adjustments */
 @media (max-width: 768px) {
-  .search-container {
-      max-width: 95%;
-      margin: 0 auto;
-  }
-  
+  /* .search-container {
+    width: 315px;
+    margin: 0 auto;
+    padding: 0.5rem;
+  } */
+
   .search-input {
-      font-size: 0.9rem;
-      padding: 0.5rem 1rem;
+    width: 300px;
+    font-size: 0.9rem;
+    padding: 0.5rem 1rem;
   }
-  
+
   .search-dropdown {
-      max-height: 300px;
+    max-height: 300px;
   }
 }
 
 @media (max-width: 480px) {
   .search {
-      padding: 0.5rem;
+    padding: 0.5rem;
   }
-  
+
   .search-container {
-      padding: 0.25rem;
+    padding: 0.25rem;
   }
-  
+
   .search-input {
-      font-size: 0.85rem;
+    /* width: 200px; */
+    font-size: 0.85rem;
   }
 }
 
@@ -1711,8 +1725,8 @@ th {
 }
 
 .footer-link {
- padding: 0 4px;
- color: #54c5eb;
+  padding: 0 4px;
+  color: #54c5eb;
 }
 
 .footer-link:hover {
