@@ -961,7 +961,7 @@ h3.location {
 
 /* Main content */
 .portfolio-container {
-  /* height: auto; */
+  height: auto;
   padding-bottom: 20px;
   margin: auto;
   width: 100%;
@@ -1111,7 +1111,7 @@ th {
 
 @media (max-width: 768px) {
   .portfolio-container {
-    height: 100lvh;
+    /* height: 100lvh; */
     overflow-y: auto;
     width: 100vw;
   }
