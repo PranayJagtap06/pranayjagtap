@@ -119,19 +119,16 @@
 </head>
 
 <body>
-    
+
     <header class="header">
         <nav class="navbar desktop-navbar">
             <ul>
                 <li><a href="index.html" class="nav-link" rel="noopener noreferrer">Home</a></li>
                 <li><a href="portfolios.html" class="nav-link" rel="noopener noreferrer">Portfolios</a></li>
-                <li><a href="PranayJagtap.pdf" class="nav-link" target="_blank" rel="noopener noreferrer">CV/Resume</a></li>
+                <li><a href="PranayJagtap.pdf" class="nav-link" target="_blank" rel="noopener noreferrer">CV/Resume</a>
+                </li>
                 <li><a href="about.html" class="nav-link" rel="noopener noreferrer">About</a></li>
                 <li><a href="contact.html" class="nav-link" rel="noopener noreferrer">Contact</a></li>
-                <!-- <li class="search-container">
-                    <input type="text" class="search-input" id="search-input" placeholder="🔍 Search portfolios...">
-                    <div class="search-results" id="search-results"></div>
-                </li> -->
             </ul>
         </nav>
 
@@ -143,11 +140,19 @@
             <ul class="mobile-navbar-menu">
                 <li><a href="index.html" class="nav-link" rel="noopener noreferrer">Home</a></li>
                 <li><a href="portfolios.html" class="nav-link" rel="noopener noreferrer">Portfolios</a></li>
-                <li><a href="PranayJagtap.pdf" class="nav-link" rel="noopener noreferrer" target="_blank">CV/Resume</a></li>
+                <li><a href="PranayJagtap.pdf" class="nav-link" rel="noopener noreferrer" target="_blank">CV/Resume</a>
+                </li>
                 <li><a href="about.html" class="nav-link" rel="noopener noreferrer">About</a></li>
                 <li><a href="contact.html" class="nav-link" rel="noopener noreferrer">Contact</a></li>
             </ul>
         </nav>
+
+        <div class="search">
+            <div class="search-container">
+                <input type="text" class="search-input" id="search-input" placeholder="🔍 Search portfolios or tags...">
+                <div class="dropdown-list" id="dropdownList"></div>
+            </div>
+        </div>
     </header>
 
     <div id="notification-banner" class="notification-banner">
@@ -158,10 +163,6 @@
     </div>
 
     <main>
-        <header class="search-container">
-            <input type="text" class="search-input" id="search-input" placeholder="🔍 Search portfolios...">
-            <div class="search-results" id="search-results"></div>
-        </header>
         <div class="container padding">
             <div class="portfolios-grid" id="portfoliosGrid"></div>
             <div class="pagination-container" id="paginationContainer"></div>
@@ -171,27 +172,31 @@
     <footer class="footer-container">
         <div class="footer">
             <div class="desktop-footer">
-              <div class="footer-heading"> Build with <div class="hearts">♥️</div> </div>
-              <div class="copyright">&copy; 2024 <a href="index.html" class="footer-link" rel="noopener noreferrer">
-                  Pranay Jagtap </a> | Licensed under<a
-                  href="https://github.com/PranayJagtap06/pranayjagtap/blob/main/LICENSE.txt" class="footer-link"
-                  rel="noopener noreferrer" target="_blank"> MIT </a>|<a href="https://github.com/PranayJagtap06/pranayjagtap" class="footer-link"
-                  rel="noopener noreferrer" target="_blank"> Website GitHub Repository </a></div>
-              <!-- <div class="site-github"></div> -->
+                <div class="footer-heading"> Build with <div class="hearts">♥️</div>
+                </div>
+                <div class="copyright">&copy; 2024 <a href="index.html" class="footer-link" rel="noopener noreferrer">
+                        Pranay Jagtap </a> | Licensed under<a
+                        href="https://github.com/PranayJagtap06/pranayjagtap/blob/main/LICENSE.txt" class="footer-link"
+                        rel="noopener noreferrer" target="_blank"> MIT </a>|<a
+                        href="https://github.com/PranayJagtap06/pranayjagtap" class="footer-link"
+                        rel="noopener noreferrer" target="_blank"> Website GitHub Repository </a></div>
+                <!-- <div class="site-github"></div> -->
             </div>
             <div class="mobile-footer">
-              <div class="footer-heading"> Build with <div class="hearts">♥️</div> </div>
-              <div class="copyright">&copy; 2024 <a href="index.html" class="footer-link" rel="noopener noreferrer">
-                  Pranay Jagtap </a> | Licensed under<a
-                  href="https://github.com/PranayJagtap06/pranayjagtap/blob/main/LICENSE.txt" class="footer-link"
-                  rel="noopener noreferrer" target="_blank"> MIT </a></div>
-              <div class="site-github"><a href="https://github.com/PranayJagtap06/pranayjagtap" class="footer-link"
-                  rel="noopener noreferrer" target="_blank"> Website GitHub Repository </a></div>
+                <div class="footer-heading"> Build with <div class="hearts">♥️</div>
+                </div>
+                <div class="copyright">&copy; 2024 <a href="index.html" class="footer-link" rel="noopener noreferrer">
+                        Pranay Jagtap </a> | Licensed under<a
+                        href="https://github.com/PranayJagtap06/pranayjagtap/blob/main/LICENSE.txt" class="footer-link"
+                        rel="noopener noreferrer" target="_blank"> MIT </a></div>
+                <div class="site-github"><a href="https://github.com/PranayJagtap06/pranayjagtap" class="footer-link"
+                        rel="noopener noreferrer" target="_blank"> Website GitHub Repository </a></div>
             </div>
-          </div>
+        </div>
     </footer>
 
     <script src="js/nav-script.js"></script>
+    <!-- <script src="js/search-dropdown.js"></script> -->
     <script>
         document.addEventListener('DOMContentLoaded', function () {
             const menuToggle = document.getElementById('menu-toggle');
@@ -419,7 +424,8 @@
         document.addEventListener('DOMContentLoaded', () => {
             portfolioManager.loadPortfolios();
         });
-
+    </script>
+    <!-- <script>
         // Search functionality
         const searchInput = document.getElementById('search-input');
         const searchResults = document.getElementById('search-results');
@@ -436,7 +442,8 @@
 
             portfolioManager.searchPortfolios(searchTerm);
         });
-
+    </script> -->
+    <script>
         document.addEventListener('DOMContentLoaded', () => {
             const notificationBanner = document.getElementById('notification-banner');
             const notificationCloseBtn = notificationBanner.querySelector('.notification-close');
@@ -466,7 +473,145 @@
             // Close button event listener
             notificationCloseBtn.addEventListener('click', hideNotification);
         });
+    </script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Update HTML structure to match the styling
+            const searchContainer = document.querySelector('.search-container');
+            searchContainer.innerHTML = `
+        <div class="search-wrapper">
+            <input type="text" class="search-input" id="search-input" placeholder="🔍 Search portfolios or tags...">
+            <div class="search-dropdown" id="dropdownList">
+                <div class="dropdown-section">
+                    <div class="section-title">Tags</div>
+                    <div class="tags-cloud" id="tags-section"></div>
+                </div>
+                <div class="dropdown-section">
+                    <div class="section-title">Portfolios</div>
+                    <ul class="portfolios-list" id="portfolios-section"></ul>
+                </div>
+            </div>
+        </div>
+    `;
 
+            const searchInput = document.getElementById('search-input');
+            const dropdownList = document.getElementById('dropdownList');
+            const tagsSection = document.getElementById('tags-section');
+            const portfoliosSection = document.getElementById('portfolios-section');
+            let tags = [];
+            let portfolioTitles = [];
+
+            async function fetchPortfolios() {
+                try {
+                    const response = await fetch('portfolios/portfolios.json');
+                    if (!response.ok) throw new Error('Failed to fetch portfolios');
+
+                    const portfolios = await response.json();
+                    portfolioTitles = portfolios.map(portfolio => portfolio.title);
+                    tags = [...new Set(portfolios.flatMap(portfolio => portfolio.tags))];
+                } catch (error) {
+                    console.error('Error fetching portfolios:', error);
+                }
+            }
+
+            function showDropdownList(items) {
+                tagsSection.innerHTML = '';
+                portfoliosSection.innerHTML = '';
+
+                // Separate items into tags and portfolios
+                const tagItems = items.filter(item => item.type === 'tag');
+                const portfolioItems = items.filter(item => item.type === 'portfolio');
+
+                // Create tag elements
+                tagItems.forEach(item => {
+                    const div = document.createElement('div');
+                    div.className = 'dropdown-tag';
+                    div.innerHTML = `<i class="fa-solid fa-tag"></i> ${item.name}`;
+                    div.addEventListener('click', () => {
+                        searchInput.value = item.name;
+                        hideDropdown();
+                        portfolioManager.searchPortfolios(item.name);
+                    });
+                    tagsSection.appendChild(div);
+                });
+
+                // Create portfolio elements
+                portfolioItems.forEach(item => {
+                    const li = document.createElement('li');
+                    li.className = 'portfolio-item';
+                    li.innerHTML = `<i class="fa-solid fa-folder"></i>${item.name}`;
+                    li.addEventListener('click', () => {
+                        searchInput.value = item.name;
+                        hideDropdown();
+                        portfolioManager.searchPortfolios(item.name);
+                    });
+                    portfoliosSection.appendChild(li);
+                });
+
+                showDropdown();
+            }
+
+            function filterDropdownItems(query) {
+                const filteredItems = [];
+                if (query) {
+                    filteredItems.push(
+                        ...tags.filter(tag => tag.toLowerCase().includes(query.toLowerCase()))
+                            .map(tag => ({ name: tag, type: 'tag' })),
+                        ...portfolioTitles.filter(title => title.toLowerCase().includes(query.toLowerCase()))
+                            .map(title => ({ name: title, type: 'portfolio' }))
+                    );
+                } else {
+                    filteredItems.push(
+                        ...tags.map(tag => ({ name: tag, type: 'tag' })),
+                        ...portfolioTitles.map(title => ({ name: title, type: 'portfolio' }))
+                    );
+                }
+                showDropdownList(filteredItems);
+            }
+
+            function showDropdown() {
+                dropdownList.classList.add('active');
+            }
+
+            function hideDropdown() {
+                dropdownList.classList.remove('active');
+            }
+
+            // Initialize and fetch portfolios on load
+            fetchPortfolios();
+
+            // Event listeners
+            searchInput.addEventListener('input', (e) => {
+                const query = e.target.value;
+                filterDropdownItems(query);
+                if (!query) {
+                    hideDropdown();
+                }
+            });
+
+            // Hide dropdown if clicked outside
+            document.addEventListener('click', (e) => {
+                if (!e.target.closest('.search-wrapper')) {
+                    hideDropdown();
+                }
+            });
+
+            // Check for tag parameter in URL on load
+            const urlParams = new URLSearchParams(window.location.search);
+            const tagParam = urlParams.get('tag');
+            if (tagParam) {
+                searchInput.value = tagParam;
+                portfolioManager.searchPortfolios(tagParam);
+            }
+
+            searchInput.addEventListener('click', (e) => {
+                const query = e.target.value;
+                filterDropdownItems(query);
+                // if (!query) {
+                //     hideDropdown();
+                // }
+            });
+        });
     </script>
 </body>
 
