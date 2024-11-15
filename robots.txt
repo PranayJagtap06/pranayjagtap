@@ -1,5 +1,6 @@
 
 Allow: /
+Allow: /portfolios/
 User-agent: Googlebot
 Disallow: 
 User-agent: googlebot-image
@@ -34,4 +35,4 @@ User-agent: ia_archiver/v3.9
 Disallow: 
 User-agent: *
 Disallow: 
-Sitemap: https://pranayjagtap.netlify.app
+Sitemap: https://pranayjagtap.netlify.app/sitemap.xml
