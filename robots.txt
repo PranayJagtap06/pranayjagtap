@@ -6,5 +6,5 @@ Allow: /
 Sitemap: https://pranayjagtap.netlify.app/sitemap.xml
 
 # Disallow crawling of admin or private areas if you have any
-# Disallow: /admin/
-# Disallow: /private/
+Disallow: /admin/
+Disallow: /private/
