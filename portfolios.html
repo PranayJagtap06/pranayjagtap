@@ -59,6 +59,8 @@
     <!-- Geo Tags -->
     <meta name="geo.region" content="IN-MH"> <!-- Assuming you're in Maharashtra, India -->
     <meta name="geo.placename" content="Nagpur">
+    <meta name="geo.position" content="21.1458;79.0882"> <!-- Nagpur coordinates -->
+    <meta name="ICBM" content="21.1458, 79.0882">
 
     <!-- Language and Country -->
     <meta http-equiv="content-language" content="en-IN">
@@ -551,7 +553,8 @@
                 portfolioItems.forEach(item => {
                     const li = document.createElement('li');
                     li.className = 'portfolio-item';
-                    li.innerHTML = `<i class="fa-solid fa-folder"></i>${item.name}`;
+                    // li.innerHTML = `<i class="fa-solid fa-folder"></i>${item.name}`;
+                    li.innerHTML = `📁 ${item.name}`
                     li.setAttribute('tabindex', '0');  // NEW: Make element focusable
                     li.addEventListener('click', () => {
                         searchInput.value = item.name;

@@ -2,4 +2,9 @@
 
 # Allow crawling of all content
 User-agent: *
-Disallow:
+Allow: /
+Sitemap: https://pranayjagtap.netlify.app/sitemap.xml
+
+# Disallow crawling of admin or private areas if you have any
+# Disallow: /admin/
+# Disallow: /private/
