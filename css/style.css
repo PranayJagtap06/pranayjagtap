@@ -1153,10 +1153,10 @@ h3.location {
   /* background: rgba(255, 255, 255, 0.1); */
 }
 
-/* .search-wrapper {
-  width: 100%;
+.search-wrapper {
+  /* width: 100%; */
   position: relative;
-} */
+}
 
 .search-input {
   width: 500px;
@@ -1196,6 +1196,7 @@ h3.location {
   transition: all 0.3s ease;
   z-index: 1000;
   max-height: 400px;
+  width: 500px;
   overflow-y: auto;
 }
 
@@ -1306,6 +1307,7 @@ h3.location {
 
   .search-dropdown {
     max-height: 300px;
+    width: 300px;
   }
 }
 
