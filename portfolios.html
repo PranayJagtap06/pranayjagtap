@@ -28,8 +28,7 @@
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://pranayjagtap.netlify.app/portfolios">
     <meta property="og:title" content="Pranay Jagtap | Machine Learning Portfolio Projects">
-    <meta property="og:description"
-        content="Exploring ML Frontiers: Practical Implementations and Code Insights">
+    <meta property="og:description" content="Exploring ML Frontiers: Practical Implementations and Code Insights">
     <meta property="og:image" content="https://pranayjagtap.netlify.app/img/pranay_sq.jpg">
     <meta property="og:site_name" content="pranayjagtap">
 
@@ -50,8 +49,7 @@
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:url" content="https://pranayjagtap.netlify.app/portfolios">
     <meta name="twitter:title" content="Pranay Jagtap | Machine Learning Portfolio Projects">
-    <meta name="twitter:description"
-        content="Exploring ML Frontiers: Practical Implementations and Code Insights">
+    <meta name="twitter:description" content="Exploring ML Frontiers: Practical Implementations and Code Insights">
     <meta name="twitter:image" content="https://pranayjagtap.netlify.app/img/pranay_sq.jpg">
     <meta name="twitter:creator" content="@pranay_jagtap_">
 
@@ -480,7 +478,6 @@
     </script>
     <script>
         document.addEventListener('DOMContentLoaded', () => {
-            // Update HTML structure to match the styling
             const searchContainer = document.querySelector('.search-container');
             searchContainer.innerHTML = `
         <div class="search-wrapper">
@@ -504,6 +501,9 @@
             const portfoliosSection = document.getElementById('portfolios-section');
             let tags = [];
             let portfolioTitles = [];
+            // NEW: Added variables for tab navigation
+            let focusableElements = [];
+            let currentFocusIndex = -1;
 
             async function fetchPortfolios() {
                 try {
@@ -522,37 +522,83 @@
                 tagsSection.innerHTML = '';
                 portfoliosSection.innerHTML = '';
 
-                // Separate items into tags and portfolios
                 const tagItems = items.filter(item => item.type === 'tag');
                 const portfolioItems = items.filter(item => item.type === 'portfolio');
 
-                // Create tag elements
+                // MODIFIED: Added tabindex and keyboard event handling for tags
                 tagItems.forEach(item => {
                     const div = document.createElement('div');
                     div.className = 'dropdown-tag';
                     div.innerHTML = `<i class="fa-solid fa-tag"></i> ${item.name}`;
+                    div.setAttribute('tabindex', '0');  // NEW: Make element focusable
                     div.addEventListener('click', () => {
                         searchInput.value = item.name;
                         hideDropdown();
                         portfolioManager.searchPortfolios(item.name);
                     });
+                    // NEW: Added keyboard support
+                    div.addEventListener('keypress', (e) => {
+                        if (e.key === 'Enter') {
+                            searchInput.value = item.name;
+                            hideDropdown();
+                            portfolioManager.searchPortfolios(item.name);
+                        }
+                    });
                     tagsSection.appendChild(div);
                 });
 
-                // Create portfolio elements
+                // MODIFIED: Added tabindex and keyboard event handling for portfolios
                 portfolioItems.forEach(item => {
                     const li = document.createElement('li');
                     li.className = 'portfolio-item';
                     li.innerHTML = `<i class="fa-solid fa-folder"></i>${item.name}`;
+                    li.setAttribute('tabindex', '0');  // NEW: Make element focusable
                     li.addEventListener('click', () => {
                         searchInput.value = item.name;
                         hideDropdown();
                         portfolioManager.searchPortfolios(item.name);
                     });
+                    // NEW: Added keyboard support
+                    li.addEventListener('keypress', (e) => {
+                        if (e.key === 'Enter') {
+                            searchInput.value = item.name;
+                            hideDropdown();
+                            portfolioManager.searchPortfolios(item.name);
+                        }
+                    });
                     portfoliosSection.appendChild(li);
                 });
 
                 showDropdown();
+                updateFocusableElements();  // NEW: Update focusable elements after rendering
+            }
+
+            // NEW: Added function to track focusable elements
+            function updateFocusableElements() {
+                focusableElements = [
+                    ...tagsSection.querySelectorAll('.dropdown-tag'),
+                    ...portfoliosSection.querySelectorAll('.portfolio-item')
+                ];
+                currentFocusIndex = -1;
+            }
+
+            // NEW: Added tab navigation handler
+            function handleTabNavigation(e) {
+                if (!dropdownList.classList.contains('active')) return;
+
+                if (e.key === 'Tab') {
+                    e.preventDefault();
+
+                    if (e.shiftKey) {
+                        // Shift + Tab: move backwards
+                        currentFocusIndex = currentFocusIndex <= 0 ? focusableElements.length - 1 : currentFocusIndex - 1;
+                    } else {
+                        // Tab: move forwards
+                        currentFocusIndex = currentFocusIndex >= focusableElements.length - 1 ? 0 : currentFocusIndex + 1;
+                    }
+
+                    focusableElements[currentFocusIndex]?.focus();
+                }
             }
 
             function filterDropdownItems(query) {
@@ -577,8 +623,10 @@
                 dropdownList.classList.add('active');
             }
 
+            // MODIFIED: Added focus reset to hideDropdown
             function hideDropdown() {
                 dropdownList.classList.remove('active');
+                currentFocusIndex = -1;
             }
 
             // Initialize and fetch portfolios on load
@@ -592,6 +640,9 @@
                     hideDropdown();
                 }
             });
+
+            // NEW: Added tab navigation event listener
+            document.addEventListener('keydown', handleTabNavigation);
 
             // Hide dropdown if clicked outside
             document.addEventListener('click', (e) => {
