@@ -1,10 +1,37 @@
-# www.robotstxt.org/
 
-# Allow crawling of all content
-User-agent: *
 Allow: /
-Sitemap: https://pranayjagtap.netlify.app/sitemap.xml
-
-# Disallow crawling of admin or private areas if you have any
-Disallow: /admin/
-Disallow: /private/
+User-agent: Googlebot
+Disallow: 
+User-agent: googlebot-image
+Disallow: 
+User-agent: googlebot-mobile
+Disallow: 
+User-agent: Robozilla
+Disallow: 
+User-agent: Slurp
+Disallow: 
+User-agent: Gigabot
+Disallow: 
+User-agent: MSNBot
+Disallow: 
+User-agent: Teoma
+Disallow: 
+User-agent: Nutch
+Disallow: 
+User-agent: baiduspider
+Disallow: 
+User-agent: naverbot
+Disallow: 
+User-agent: yeti
+Disallow: 
+User-agent: yahoo-mmcrawler
+Disallow: 
+User-agent: psbot
+Disallow: /
+User-agent: yahoo-blogs/v3.9
+Disallow: 
+User-agent: ia_archiver/v3.9
+Disallow: 
+User-agent: *
+Disallow: 
+Sitemap: https://pranayjagtap.netlify.app
