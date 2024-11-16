@@ -48,4 +48,4 @@ Disallow:
 User-agent: *
 Allow: /
 Disallow: 
-Sitemap: https://pranayjagtap.netlify.app
+Sitemap: https://pranayjagtap.netlify.app/sitemap.xml
