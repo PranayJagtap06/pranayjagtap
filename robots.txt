@@ -1,51 +1,67 @@
 User-agent: Googlebot
 Allow: /
+Allow: /portfolios/
 Disallow: 
 User-agent: googlebot-image
 Allow: /
+Allow: /portfolios/
 Disallow: 
 User-agent: googlebot-mobile
 Allow: /
+Allow: /portfolios/
 Disallow: 
 User-agent: Robozilla
 Allow: /
+Allow: /portfolios/
 Disallow: 
 User-agent: Slurp
 Allow: /
+Allow: /portfolios/
 Disallow: 
 User-agent: Gigabot
 Allow: /
+Allow: /portfolios/
 Disallow: 
 User-agent: MSNBot
 Allow: /
+Allow: /portfolios/
 Disallow: 
 User-agent: Teoma
 Allow: /
+Allow: /portfolios/
 Disallow: 
 User-agent: Nutch
 Allow: /
+Allow: /portfolios/
 Disallow: 
 User-agent: baiduspider
 Allow: /
+Allow: /portfolios/
 Disallow: 
 User-agent: naverbot
 Allow: /
+Allow: /portfolios/
 Disallow: 
 User-agent: yeti
 Allow: /
+Allow: /portfolios/
 Disallow: 
 User-agent: yahoo-mmcrawler
 Allow: /
+Allow: /portfolios/
 Disallow: 
 User-agent: psbot
 Disallow: /
 User-agent: yahoo-blogs/v3.9
 Allow: /
+Allow: /portfolios/
 Disallow: 
 User-agent: ia_archiver/v3.9
 Allow: /
+Allow: /portfolios/
 Disallow: 
 User-agent: *
 Allow: /
+Allow: /portfolios/
 Disallow: 
 Sitemap: https://pranayjagtap.netlify.app/sitemap.xml
