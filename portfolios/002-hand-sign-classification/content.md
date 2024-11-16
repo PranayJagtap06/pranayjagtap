@@ -8,8 +8,8 @@ This project entailed the development of a deep learning model capable of classi
 
 <div align="center">
     <figure>
-        <a href="https://pranayjml.odoo.com/web/image/260-729d94da/prediction_5.jpg?access_token=d64993bb-f51b-452b-8113-f236a2b04aef">
-            <img class="mk-img" src="https://pranayjml.odoo.com/web/image/260-729d94da/prediction_5.jpg?access_token=d64993bb-f51b-452b-8113-f236a2b04aef" alt="Hand Sign Prediction 5">
+        <a href="portfolios/002-hand-sign-classification/5-hand-sign-prediction.png">
+            <img class="mk-img" src="portfolios/002-hand-sign-classification/5-hand-sign-prediction.png" alt="Hand Sign Prediction 5">
         </a>
         <figcaption>Hand Sign Prediction 5</figcaption>
     </figure>

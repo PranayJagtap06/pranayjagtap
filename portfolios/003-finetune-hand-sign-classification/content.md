@@ -50,6 +50,15 @@ The classification report reveals high precision, recall, and F1-score across al
 
 The final model's performance surpasses the previous CNN architecture base model by achieving 5% lower loss and 5% higher accuracy, along with a 3% higher AUC-ROC score. This significant improvement highlights the effectiveness of the transfer learning approach and the chosen model architecture.
 
+<div align="center">
+    <figure>
+        <a href="portfolios/003-finetune-hand-sign-classification/model_tl_cm.png">
+            <img class="mk-img" src="portfolios/003-finetune-hand-sign-classification/model_tl_cm.png" alt="Finetuned Classifier Model's Confusion Matrix">
+        </a>
+        <figcaption>Finetuned Classifier Model's Confusion Matrix</figcaption>
+    </figure>
+</div>
+
 ### Conclusion
 
 This project showcases my proficiency in building and training a high-performing transfer learning model for image classification. The proposed approach, utilising EfficientNetB0 and a three-step fine-tuning strategy, effectively leverages pre-trained knowledge to achieve state-of-the-art results on the hand sign classification task. The model's impressive performance demonstrates the power of transfer learning in accelerating the development of accurate and efficient image recognition systems.
