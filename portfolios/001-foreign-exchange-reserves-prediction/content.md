@@ -11,8 +11,8 @@ This project involved the development of a robust time series forecasting model 
 <!-- ![Current and Estimated Foreign Exchange Reserves](https://pranayjml.odoo.com/web/image/256-eb6a85d9/IE_fig3.png?access_token=042b66fa-a00a-44f6-810b-f20e9723025e) -->
 <div align="center">
     <figure>
-        <a href="https://pranayjml.odoo.com/web/image/256-eb6a85d9/IE_fig3.png?access_token=042b66fa-a00a-44f6-810b-f20e9723025e">
-            <img class="mk-img" src="https://pranayjml.odoo.com/web/image/256-eb6a85d9/IE_fig3.png?access_token=042b66fa-a00a-44f6-810b-f20e9723025e" alt="Current & Estimated Foreign Exchange Reserves">
+        <a href="portfolios/001-foreign-exchange-reserves-prediction/IE_fig3.png">
+            <img class="mk-img" src="portfolios/001-foreign-exchange-reserves-prediction/IE_fig3.png" alt="Current & Estimated Foreign Exchange Reserves">
         </a>
         <figcaption>Current & Estimated Foreign Exchange Reserves</figcaption>
     </figure>
