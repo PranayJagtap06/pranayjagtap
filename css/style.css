@@ -272,7 +272,7 @@ body::before {
 
 body {
   /* display: flex; */
-  font-family: "Spectral";
+  font-family: "Caladea";
   background-color: rgba(0, 0, 0, 0.4);
   position: relative;
   overflow-x: hidden;
@@ -513,7 +513,7 @@ h3 {
   text-align: left;
   font-size: 1.5rem;
   text-align: left;
-  margin-top: 1rem;
+  margin-top: 0.5rem;
   margin-bottom: 0.5rem;
   letter-spacing: 0.3px;
 }
@@ -722,8 +722,9 @@ p.intro-main {
 
   /* Adjust spacing between elements */
   h1 {
+    font-size: 2.5rem;
     margin-top: 20px;
-    margin-bottom: 10px;
+    margin-bottom: 5px;
   }
 
   .circle {
@@ -739,28 +740,26 @@ p.intro-main {
 
   /* Location text adjustment */
   h3.location {
-    margin: 10px 0;
+    margin: 5px 0;
     font-size: 1.2rem;
   }
 }
 
 /* Even smaller screens */
-@media (max-width: 480px) {
+/* @media (max-width: 480px) {
   .circle img {
     height: 200px;
-    /* Even smaller for very small screens */
     width: 200px;
   }
 
   h1 {
     font-size: 2rem;
-    /* Adjust heading size for mobile */
   }
 
   h3.location {
     font-size: 1rem;
   }
-}
+} */
 
 /* Handle viewport height on mobile browsers */
 @media (max-height: 700px) {
@@ -1638,14 +1637,14 @@ th {
 }
 
 .link-highlight {
-  color: #4fc3f7;
+  color: #6bcffd;
   text-decoration: none;
   transition: color 0.3s ease;
 }
 
 .link-highlight:hover {
-  color: #81d4fa;
-  text-decoration: underline;
+  color: #1b76a0;
+  text-decoration: none;
 }
 
 /* Social Links Styles */
