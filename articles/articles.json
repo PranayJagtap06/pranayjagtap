@@ -9,7 +9,7 @@
     },
     {
         "id": "002-hand-sign-classification",
-        "title": "Hand Sign Classification with CNN.",
+        "title": "Hand Sign Classification with CNN",
         "date": "2024-04-16",
         "description": "0-5 hand sign classification using CNN",
         "tags": ["image-classification", "cnn", "tensorflow"],
@@ -19,24 +19,8 @@
         "id": "003-finetune-hand-sign-classification",
         "title": "Fine Tuned Hand Sign Classifier",
         "date": "2024-07-03",
-        "description": "Fine tuning 0-5 hand sign classifier using Transfer Learning.",
+        "description": "Fine tuning 0-5 hand sign classifier using Transfer Learning",
         "tags": ["image-classification", "transfer-learning", "tensorflow"],
         "headerImage": "./portfolios/003-finetune-hand-sign-classification/transfer-learning.jpg"
-    },
-    {
-        "id": "004-mobile-price-classification",
-        "title": "Mobile Phone Price Classification",
-        "date": "2024-11-30",
-        "description": "Training Scikit-Learn Pipeline to classify mobile phone prices.",
-        "tags": ["multiclass-classification", "scikit-learn", "pipeline"],
-        "headerImage": "./portfolios/004-mobile-price-classification/mob_pred_bgimg.png"
-    },
-    {
-        "id": "005-asl-detector-pytorch",
-        "title": "American Sign Language (ASL) Detector using PyTorch",
-        "date": "2024-12-19",
-        "description": "Building a system to detect American Sign Language (ASL) using PyTorch",
-        "tags": ["image-classification", "pytorch", "transfer-learning"],
-        "headerImage": "./portfolios/005-asl-detector-pytorch/asl.jpg"
     }
 ]

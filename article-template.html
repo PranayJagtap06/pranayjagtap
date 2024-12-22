@@ -1,0 +1,439 @@
+<!-- article-template.html -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="generator" content="Netlify">
+
+    <!-- Dynamic SEO Meta Tags -->
+    <title id="dynamicTitle">Pranay Jagtap | Project Article</title>
+
+    <!-- Placeholder meta tags that will be dynamically updated -->
+    <meta name="title" id="dynamicMetaTitle" content="Pranay Jagtap - Project Article">
+    <meta name="description" id="dynamicMetaDescription" content="Pranay's Machine Learning Projects">
+    <meta name="keywords" id="dynamicMetaKeywords" content="Machine Learning, Data Science, Projects">
+
+    <!-- Robots and Canonical -->
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" id="dynamicCanonical" href="">
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="article">
+    <meta property="og:title" id="dynamicOgTitle" content="">
+    <meta property="og:image" id="dynamicOgImage" content="">
+    <meta property="og:url" id="dynamicOgUrl" content="">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" id="dynamicTwitterTitle" content="">
+    <meta name="twitter:image" id="dynamicTwitterImage" content="">
+
+    <!-- Structured Data -->
+    <script type="application/ld+json" id="dynamicJsonLd"></script>
+
+    <!-- Google Font Family -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Spectral:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Caladea:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css"
+        integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/style.css">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon_io/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon_io/favicon-16x16.png">
+    <link rel="apple-touch-icon" type="image/png" href="favicon_io/apple-touch-icon-180x180.png">
+    <link rel="manifest" href="favicon_io/site.webmanifest">
+    <meta name="theme-color" content="#ffffff">
+
+    <!-- Prism.js for code highlighting -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax//libs/prism/1.29.0/components/prism-python.min.js"></script>
+    <!-- Marked.js for markdown -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/marked/4.3.0/marked.min.js"></script>
+
+</head>
+
+<body>
+    
+    <header class="header">
+        <nav class="navbar desktop-navbar">
+            <ul>
+                <li><a href="index.html" class="nav-link" rel="noopener noreferrer">Home</a></li>
+                <li><a href="articles.html" class="nav-link" rel="noopener noreferrer">Portfolios</a></li>
+                <li><a href="https://1drv.ms/b/s!Atz9R7Pea3h__EV5XhLBF-YFcL25?e=VnsBeS" class="nav-link" target="_blank" rel="noopener noreferrer">CV/Resume</a></li>
+                <li><a href="about.html" class="nav-link" rel="noopener noreferrer">About</a></li>
+                <li><a href="contact.html" class="nav-link" rel="noopener noreferrer">Contact</a></li>
+            </ul>
+        </nav>
+
+        <nav class="navbar mobile-navbar">
+            <input type="checkbox" id="menu-toggle" />
+            <label for="menu-toggle" class="menu-toggle">
+                <i class="fa-solid fa-bars"></i>
+            </label>
+            <ul class="mobile-navbar-menu">
+                <li><a href="index.html" class="nav-link" rel="noopener noreferrer">Home</a></li>
+                <li><a href="articles.html" class="nav-link" rel="noopener noreferrer">Portfolios</a></li>
+                <li><a href="https://1drv.ms/b/s!Atz9R7Pea3h__EV5XhLBF-YFcL25?e=VnsBeS" class="nav-link" rel="noopener noreferrer" target="_blank">CV/Resume</a></li>
+                <li><a href="about.html" class="nav-link" rel="noopener noreferrer">About</a></li>
+                <li><a href="contact.html" class="nav-link" rel="noopener noreferrer">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="article-container"> <!-- Article Header -->
+        <header class="article-header">
+            <div class="header-content">
+                <h1 class="article-title" id="articleTitle"></h1>
+                <p class="article-date" id="articleDate"></p>
+            </div>
+        </header>
+
+        <div class="article-content" id="articleContent">
+            <div class="markdown-content" id="markdownContent"></div>
+        </div>
+
+        <div class="article-navigation" id="articleNavigation"></div>
+    </main>
+
+    <footer class="footer-container">
+        <div class="footer">
+            <div class="desktop-footer">
+              <div class="footer-heading"> Build with <div class="hearts">♥️</div> </div>
+              <div class="copyright">&copy; 2024 <a href="index.html" class="footer-link" rel="noopener noreferrer">
+                  Pranay Jagtap </a> | Licensed under<a
+                  href="https://github.com/PranayJagtap06/pranayjagtap/blob/main/LICENSE.txt" class="footer-link"
+                  rel="noopener noreferrer" target="_blank"> MIT </a>|<a href="https://github.com/PranayJagtap06/pranayjagtap" class="footer-link"
+                  rel="noopener noreferrer" target="_blank"> Website GitHub Repository </a></div>
+              <!-- <div class="site-github"></div> -->
+            </div>
+            <div class="mobile-footer">
+              <div class="footer-heading"> Build with <div class="hearts">♥️</div> </div>
+              <div class="copyright">&copy; 2024 <a href="index.html" class="footer-link" rel="noopener noreferrer">
+                  Pranay Jagtap </a> | Licensed under<a
+                  href="https://github.com/PranayJagtap06/pranayjagtap/blob/main/LICENSE.txt" class="footer-link"
+                  rel="noopener noreferrer" target="_blank"> MIT </a></div>
+              <div class="site-github"><a href="https://github.com/PranayJagtap06/pranayjagtap" class="footer-link"
+                  rel="noopener noreferrer" target="_blank"> Website GitHub Repository </a></div>
+            </div>
+          </div>
+    </footer>
+
+    <script src="js/nav-script.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Entire JavaScript code goes here
+            class ArticleViewer {
+                constructor() {
+                    this.currentArticle = null;
+                    this.allArticles = [];
+                    this.searchDebounceTimeout = null;
+                }
+
+                async initialize() {
+                    const urlParams = new URLSearchParams(window.location.search);
+                    const articleId = urlParams.get('id');
+
+                    if (!articleId) {
+                        this.showError('No article ID specified');
+                        return;
+                    }
+
+                    try {
+                        // Load all articles first for navigation
+                        const articlesResponse = await fetch('articles/articles.json');
+                        if (!articlesResponse.ok) throw new Error('Failed to load articles data');
+                        this.allArticles = await articlesResponse.json();
+
+                        await this.loadArticle(articleId);
+                        this.setupSearch();
+                    } catch (error) {
+                        this.showError('Failed to initialize article viewer', error.message);
+                        console.error('Initialization Error:', error);
+                    }
+                }
+
+                updateMetaTags(articleData) {
+                    // Construct full URL
+                    const currentUrl = window.location.href;
+
+                    // Generate keywords
+                    const baseKeywords = [
+                        'Machine Learning',
+                        'Data Science',
+                        'Project',
+                        'Article',
+                        'Pranay Jagtap'
+                    ];
+                    const combinedKeywords = [...baseKeywords, ...articleData.tags];
+                    const keywordsString = [...new Set(combinedKeywords)].join(', ');
+
+                    // Generate description
+                    const description = `${articleData.description} | Machine Learning Project by Pranay Jagtap using ${articleData.tags.join(', ')}`;
+
+                    // Update Title
+                    document.title = `${articleData.title} | Pranay Jagtap Article`;
+
+                    // Update Meta Tags
+                    document.getElementById('dynamicMetaTitle').setAttribute('content', articleData.title);
+                    document.getElementById('dynamicMetaDescription').setAttribute('content', description);
+                    document.getElementById('dynamicMetaKeywords').setAttribute('content', keywordsString);
+
+                    // Canonical URL
+                    document.getElementById('dynamicCanonical').setAttribute('href', currentUrl);
+
+                    // Open Graph Tags
+                    document.getElementById('dynamicOgTitle').setAttribute('content', articleData.title);
+                    document.getElementById('dynamicOgDescription').setAttribute('content', description);
+                    document.getElementById('dynamicOgImage').setAttribute('content', articleData.headerImage ? window.location.origin + articleData.headerImage.replace('./', '/') : '');
+                    document.getElementById('dynamicOgUrl').setAttribute('content', currentUrl);
+
+                    // Twitter Card Tags
+                    document.getElementById('dynamicTwitterTitle').setAttribute('content', articleData.title);
+                    document.getElementById('dynamicTwitterDescription').setAttribute('content', description);
+                    document.getElementById('dynamicTwitterImage').setAttribute('content', articleData.headerImage ? window.location.origin + articleData.headerImage.replace('./', '/') : '');
+
+                    // Structured JSON-LD
+                    const jsonLdContent = {
+                        "@context": "https://schema.org",
+                        "@type": "CreativeWork",
+                        "name": articleData.title,
+                        "description": description,
+                        "keywords": keywordsString,
+                        "datePublished": articleData.date,
+                        "image": articleData.headerImage ? window.location.origin + articleData.headerImage.replace('./', '/') : '',
+                        "author": {
+                            "@type": "Person",
+                            "name": "Pranay Jagtap",
+                            "jobTitle": "Machine Learning Engineer"
+                        },
+                        "additionalProperty": {
+                            "technologies": articleData.tags
+                        }
+                    };
+
+                    document.getElementById('dynamicJsonLd').textContent = JSON.stringify(jsonLdContent, null, 2);
+                }
+
+                async loadArticle(id) {
+                    try {
+                        this.showLoading();
+
+                        // Find the article data from the loaded articles
+                        const articleData = this.allArticles.find(p => p.id === id);
+                        if (!articleData) throw new Error('Article not found');
+
+                        // Load content.md
+                        const contentResponse = await fetch(`./articles/${id}/content.md`);
+                        if (!contentResponse.ok) throw new Error('Failed to load article content');
+                        const content = await contentResponse.text();
+
+                        this.currentArticle = { meta: articleData, content };
+                        this.displayArticle();
+                        this.updateNavigation(id);
+                    } catch (error) {
+                        this.showError('Failed to load article. Please try again later.', error.message);
+                        console.error('Loading Error:', error);
+                    } finally {
+                        this.hideLoading();
+                    }
+                }
+
+                displayArticle() {
+                    if (!this.currentArticle) return;
+
+                    const { meta, content } = this.currentArticle;
+
+                    // Update header
+                    document.getElementById('articleTitle').textContent = meta.title;
+                    document.getElementById('articleDate').textContent = new Date(meta.date)
+                        .toLocaleDateString('en-US', {
+                            weekday: 'long',
+                            day: 'numeric',
+                            month: 'long',
+                            year: 'numeric'
+                        });
+
+                    // Update header image
+                    const header = document.querySelector('.article-header');
+                    if (meta.headerImage) {
+                        header.style.backgroundImage = `url('${meta.headerImage}')`;
+                    }
+
+                    // Configure marked options
+                    marked.setOptions({
+                        highlight: function (code, lang) {
+                            if (Prism.languages[lang]) {
+                                return Prism.highlight(code, Prism.languages[lang], lang);
+                            }
+                            return code;
+                        },
+                        breaks: true,
+                        gfm: true
+                    });
+
+                    // Render markdown content
+                    const articleContent = document.getElementById('articleContent');
+                    articleContent.innerHTML = '';
+                    const markdownContent = document.createElement('div');
+                    markdownContent.id = 'markdownContent';
+                    markdownContent.innerHTML = marked.parse(content);
+                    articleContent.appendChild(markdownContent);
+
+                    // Add tags
+                    const tagsContainer = document.createElement('div');
+                    tagsContainer.classList.add('tags-container');
+                    const tagsHtml = meta.tags.map(tag => `<span class="tag"><i class="fa-solid fa-tag"></i> ${tag}</span>`).join('');
+                    tagsContainer.innerHTML = `${tagsHtml}`;
+                    articleContent.appendChild(tagsContainer);
+
+                    const searchInput = document.querySelector('.search-input');
+
+                    // Add event listener to tags
+                    const tags = document.querySelectorAll('.tag');
+                    tags.forEach((tag) => {
+                        tag.addEventListener('click', (e) => {
+                            e.stopPropagation(); // Prevent parent element events
+                            const searchTerm = e.target.textContent.trim(); // Get tag text
+                            window.location.href = `articles.html?tag=${encodeURIComponent(searchTerm)}`;
+                        });
+                    });
+
+                    // Highlight code blocks
+                    Prism.highlightAll();
+                }
+
+                updateNavigation(currentId) {
+                    const currentIndex = this.allArticles.findIndex(p => p.id === currentId);
+                    const prevArticle = currentIndex > 0 ? this.allArticles[currentIndex - 1] : null;
+                    const nextArticle = currentIndex < this.allArticles.length - 1 ? this.allArticles[currentIndex + 1] : null;
+
+                    const nav = document.getElementById('articleNavigation');
+                    nav.innerHTML = `
+                        ${nextArticle ? `
+                            <a href="article-template.html?id=${nextArticle.id}" class="nav-button">
+                                <i class="fas fa-arrow-left"></i> New Article: ${nextArticle.title}
+                            </a>
+                        ` : '<div></div>'}
+                        ${prevArticle ? `
+                            <a href="article-template.html?id=${prevArticle.id}" class="nav-button">
+                                Old Article: ${prevArticle.title} <i class="fas fa-arrow-right"></i>
+                            </a>
+                        ` : '<div></div>'}
+                    `;
+                }
+
+                setupSearch() {
+                    const searchInput = document.querySelector('.search-input');
+                    const searchResults = document.querySelector('.search-results');
+
+                    // Verify that elements exist to avoid errors
+                    if (!searchInput || !searchResults) {
+                        console.error("Search input or results element is missing.");
+                        return;
+                    }
+
+                    searchInput.addEventListener('input', (e) => {
+                        const searchTerm = e.target.value.toLowerCase();
+                        clearTimeout(this.searchDebounceTimeout);
+
+                        if (searchTerm.length < 2) {
+                            searchResults.classList.remove('active');
+                            return;
+                        }
+
+                        this.searchDebounceTimeout = setTimeout(() => {
+                            const results = this.allArticles.filter(article =>
+                                article.title.toLowerCase().includes(searchTerm) ||
+                                article.description.toLowerCase().includes(searchTerm) ||
+                                article.tags.some(tag => tag.toLowerCase().includes(searchTerm))
+                            );
+
+                            if (results.length > 0) {
+                                searchResults.innerHTML = results.map(article => `
+                                    <div class="search-result-item" onclick="window.location.href='article-template.html?id=${article.id}'">
+                                        <div>${article.title}</div>
+                                        <small>${new Date(article.date).toLocaleDateString()}</small>
+                                    </div>
+                                `).join('');
+                            } else {
+                                searchResults.innerHTML = '<div class="search-result-item">No results found</div>';
+                            }
+                            searchResults.classList.add('active');
+                        }, 300);
+                    });
+
+                    document.addEventListener('click', (e) => {
+                        if (!searchInput.contains(e.target) && !searchResults.contains(e.target)) {
+                            searchResults.classList.remove('active');
+                        }
+                    });
+                }
+
+                showLoading() {
+                    const content = document.getElementById('articleContent');
+                    if (content) {
+                        content.innerHTML = '<div class="loading"></div>';
+                    }
+                }
+
+                hideLoading() {
+                    const loading = document.querySelector('.loading');
+                    if (loading) loading.remove();
+                }
+
+                showError(message, error) {
+                    const content = document.getElementById('articleContent');
+                    if (content) {
+                        content.innerHTML = `<div class="error-message">${message}<br>${error ? error : ''}</div>`;
+                    } else {
+                        console.error("Error display element not found: ", message, error);
+                    }
+                }
+            }
+
+            // Initialize the article viewer
+            const articleViewer = new ArticleViewer();
+            articleViewer.initialize();
+        });
+
+        document.addEventListener('DOMContentLoaded', function () {
+            const menuToggle = document.getElementById('menu-toggle');
+            const mobileNavbarMenu = document.querySelector('.mobile-navbar-menu');
+
+            // Ensure menu is closed by default
+            mobileNavbarMenu.style.display = 'none';
+
+            // Toggle menu when clicking the hamburger icon
+            menuToggle.addEventListener('change', (e) => {
+                mobileNavbarMenu.style.display = menuToggle.checked ? 'flex' : 'none';
+            });
+
+            // Close menu when clicking outside
+            document.addEventListener('click', (e) => {
+                if (!e.target.closest('.mobile-navbar')) {
+                    mobileNavbarMenu.style.display = 'none';
+                    menuToggle.checked = false;
+                }
+            });
+
+            // Close menu when menu item is clicked
+            mobileNavbarMenu.addEventListener('click', (e) => {
+                if (e.target.tagName === 'A') {
+                    mobileNavbarMenu.style.display = 'none';
+                    menuToggle.checked = false;
+                }
+            });
+        });
+    </script>
+</body>
+
+</html>

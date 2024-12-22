@@ -1,0 +1,671 @@
+<!-- articles.html -->
+<!DOCTYPE html>
+<html class="js" lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="generator" content="Netlify">
+    <meta property="og:site_name" content="pranayjagtap">
+    <meta property="og:image" content="https://pranayjagtap.netlify.app/img/pranay_sq.jpg">
+
+    <!-- Primary SEO Meta Tags -->
+    <title>Pranay Jagtap | Pranay's ML Space</title>
+    <meta name="title" content="Pranay Jagtap | Pranay's ML Space">
+    <meta name="description" propert="og:description"
+        content="Explore a collection of beginner friendly machine learning article by Pranay Jagtap. Sharing code & insights on varied topics of ML.">
+
+    <!-- Keywords for SEO -->
+    <meta name="keywords"
+        content="Machine Learning Blog, Pranay Jagtap Blog, Pranay's Blog, Pranay's ML Space, Data Science Blog, Python Blog, TensorFlow Blog, PyTorch Blog, Machine Learning Engineer, Data Analysis">
+
+    <!-- Robots Meta Tag -->
+    <meta name="robots" content="index, follow">
+    <meta name="googlebot" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://pranayjagtap.netlify.app/blog">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://pranayjagtap.netlify.app/blog">
+    <meta property="og:title" content="Pranay Jagtap | Pranay's ML Space">
+
+    <!-- Linkedin Details -->
+    <meta name="linkedin:card" content="summary_large_image">
+    <meta name="linkedin:title" property="og:title" content="Pranay Jagtap | Pranay's ML Space" />
+    <meta name="linkedin:industry" content="Information Technology and Services">
+    <meta name="linkedin:creator" content="@pranayj-ml-engineer">
+    <meta name="linkedin:verified" content="true">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:url" content="https://pranayjagtap.netlify.app/blog">
+    <meta name="twitter:title" content="Pranay Jagtap | Pranay's ML Space">
+    <meta name="twitter:image" content="https://pranayjagtap.netlify.app/img/pranay_sq.jpg">
+    <meta name="twitter:creator" content="@pranay_jagtap_">
+
+    <!-- Author Meta Tag -->
+    <meta name="author" content="Pranay Jagtap">
+
+    <!-- Geo Tags -->
+    <meta name="geo.region" content="IN-MH"> <!-- Assuming you're in Maharashtra, India -->
+    <meta name="geo.placename" content="Nagpur">
+    <meta name="geo.position" content="21.1458;79.0882"> <!-- Nagpur coordinates -->
+    <meta name="ICBM" content="21.1458, 79.0882">
+
+    <!-- Language and Country -->
+    <meta http-equiv="content-language" content="en-IN">
+
+    <!-- Existing meta tags -->
+    <meta name="theme-color" content="#ffffff">
+
+    <!-- Structured Data (JSON-LD) -->
+    <script type="application/ld+json">
+        {
+            "@context": "https://schema.org",
+            "@type": "WebPage",
+            "name": "Pranay Jagtap | Pranay's ML Space",
+            "description": "Explore a collection of machine learning articles by Pranay Jagtap.",
+            "mainEntity": {
+                "@type": "ItemList",
+                "itemListElement": [
+                    {
+                        "@type": "CreativeWork",
+                        "name": "Pranay's ML Space",
+                        "description": "A collection of machine learning articles"
+                    }
+                ]
+            },
+            "author": {
+                "@type": "Person",
+                "name": "Pranay Jagtap",
+                "jobTitle": "Machine Learning Explorer",
+                "knowsAbout": [
+                    "Machine Learning",
+                    "Python",
+                    "Scikit-Learn",
+                    "TensorFlow",
+                    "PyTorch",
+                    "NLP"
+                ]
+            }
+        }
+    </script>
+
+    <!-- Google Font Family -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Spectral:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Caladea:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css"
+        integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/style.css">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
+    <link rel="icon" type="image/x-icon" href="/favicon.ico?v=2">
+    <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico">
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon_io/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon_io/favicon-16x16.png">
+    <link rel="apple-touch-icon" type="image/png" href="favicon_io/apple-touch-icon-180x180.png">
+    <link rel="manifest" href="favicon_io/site.webmanifest">
+    <meta name="theme-color" content="#ffffff">
+
+</head>
+
+<body>
+
+    <header class="header">
+        <nav class="navbar desktop-navbar">
+            <ul>
+                <li><a href="index.html" class="nav-link" rel="noopener noreferrer">Home</a></li>
+                <li><a href="portfolios.html" class="nav-link" rel="noopener noreferrer">Portfolios</a></li>
+                <li><a href="https://1drv.ms/b/s!Atz9R7Pea3h__EV5XhLBF-YFcL25?e=VnsBeS" class="nav-link" target="_blank" rel="noopener noreferrer">CV/Resume</a>
+                </li>
+                <li><a href="about.html" class="nav-link" rel="noopener noreferrer">About</a></li>
+                <li><a href="contact.html" class="nav-link" rel="noopener noreferrer">Contact</a></li>
+            </ul>
+        </nav>
+
+        <nav class="navbar mobile-navbar">
+            <input type="checkbox" id="menu-toggle" />
+            <label for="menu-toggle" class="menu-toggle">
+                <i class="fa-solid fa-bars"></i>
+            </label>
+            <ul class="mobile-navbar-menu">
+                <li><a href="index.html" class="nav-link" rel="noopener noreferrer">Home</a></li>
+                <li><a href="portfolios.html" class="nav-link" rel="noopener noreferrer">Portfolios</a></li>
+                <li><a href="https://1drv.ms/b/s!Atz9R7Pea3h__EV5XhLBF-YFcL25?e=VnsBeS" class="nav-link" rel="noopener noreferrer" target="_blank">CV/Resume</a>
+                </li>
+                <li><a href="about.html" class="nav-link" rel="noopener noreferrer">About</a></li>
+                <li><a href="contact.html" class="nav-link" rel="noopener noreferrer">Contact</a></li>
+            </ul>
+        </nav>
+
+        <div class="search">
+            <div class="search-container">
+                <!-- <input type="text" class="search-input" id="search-input" placeholder="🔍 Search articles or tags..."> -->
+                <!-- <div class="dropdown-list" id="dropdownList"></div> -->
+            </div>
+        </div>
+    </header>
+
+    <div id="notification-banner" class="notification-banner">
+        <div class="notification-content-container">
+            <span class="notification-text"><em>PyTorch & NLP projects coming soon...</em></span>
+            <button class="notification-close" aria-label="Close notification">&times;</button>
+        </div>
+    </div>
+
+    <main>
+        <div class="container padding">
+            <h1>Articles</h1>
+            <h2>Exploring ML Frontiers: Practical Implementations and Code Insights</h2>
+            <div class="articles-grid" id="articlesGrid"></div>
+            <div class="pagination-container" id="paginationContainer"></div>
+        </div>
+    </main>
+
+    <footer class="footer-container">
+        <div class="footer">
+            <div class="desktop-footer">
+                <div class="footer-heading"> Build with <div class="hearts">♥️</div>
+                </div>
+                <div class="copyright">&copy; 2024 <a href="index.html" class="footer-link" rel="noopener noreferrer">
+                        Pranay Jagtap </a> | Licensed under<a
+                        href="https://github.com/PranayJagtap06/pranayjagtap/blob/main/LICENSE.txt" class="footer-link"
+                        rel="noopener noreferrer" target="_blank"> MIT </a>|<a
+                        href="https://github.com/PranayJagtap06/pranayjagtap" class="footer-link"
+                        rel="noopener noreferrer" target="_blank"> Website GitHub Repository </a></div>
+                <!-- <div class="site-github"></div> -->
+            </div>
+            <div class="mobile-footer">
+                <div class="footer-heading"> Build with <div class="hearts">♥️</div>
+                </div>
+                <div class="copyright">&copy; 2024 <a href="index.html" class="footer-link" rel="noopener noreferrer">
+                        Pranay Jagtap </a> | Licensed under<a
+                        href="https://github.com/PranayJagtap06/pranayjagtap/blob/main/LICENSE.txt" class="footer-link"
+                        rel="noopener noreferrer" target="_blank"> MIT </a></div>
+                <div class="site-github"><a href="https://github.com/PranayJagtap06/pranayjagtap" class="footer-link"
+                        rel="noopener noreferrer" target="_blank"> Website GitHub Repository </a></div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/nav-script.js"></script>
+    <!-- <script src="js/search-dropdown.js"></script> -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const menuToggle = document.getElementById('menu-toggle');
+            const mobileNavbarMenu = document.querySelector('.mobile-navbar-menu');
+
+            // Ensure menu is closed by default
+            mobileNavbarMenu.style.display = 'none';
+
+            // Toggle menu when clicking the hamburger icon
+            menuToggle.addEventListener('change', (e) => {
+                mobileNavbarMenu.style.display = menuToggle.checked ? 'flex' : 'none';
+            });
+
+            // Close menu when clicking outside
+            document.addEventListener('click', (e) => {
+                if (!e.target.closest('.mobile-navbar')) {
+                    mobileNavbarMenu.style.display = 'none';
+                    menuToggle.checked = false;
+                }
+            });
+
+            // Close menu when menu item is clicked
+            mobileNavbarMenu.addEventListener('click', (e) => {
+                if (e.target.tagName === 'A') {
+                    mobileNavbarMenu.style.display = 'none';
+                    menuToggle.checked = false;
+                }
+            });
+        });
+    </script>
+    <script>
+        class ArticleManager {
+            constructor() {
+                this.articles = [];
+                this.filteredArticles = [];
+                this.currentPage = 1;
+                this.itemsPerPage = 6;
+                this.totalArticles = 0;
+                this.isLoading = false;
+            }
+
+            async loadArticles(page = 1) {
+                try {
+                    this.isLoading = true;
+                    this.showLoading();
+
+                    // Updated path for GitHub Pages
+                    const response = await fetch('articles/articles.json');
+                    if (!response.ok) throw new Error('Failed to load articles');
+
+                    const data = await response.json();
+                    this.articles = data; // Store the loaded articles
+                    this.articles.sort((a, b) => new Date(b.date) - new Date(a.date));
+
+                    // Check for tag filter from URL 3
+                    const urlParams = new URLSearchParams(window.location.search);
+                    const tagFilter = urlParams.get('tag');
+
+                    if (tagFilter) {
+                        // Clean the tag filter
+                        const cleanTagFilter = tagFilter.trim().replace(/^#?\s*/, '');
+
+                        // Filter articles by tag
+                        this.filteredArticles = this.articles.filter(article =>
+                            article.tags.some(tag =>
+                                tag.toLowerCase() === cleanTagFilter.toLowerCase()
+                            )
+                        );
+
+                        // Set search input to the tag
+                        const searchInput = document.getElementById('search-input');
+                        if (searchInput) {
+                            searchInput.value = cleanTagFilter;
+                        }
+                    } else {
+                        this.filteredArticles = this.articles;
+                    }
+
+                    this.totalArticles = this.filteredArticles.length;
+                    this.currentPage = page;
+
+                    this.displayArticles();
+                    this.updatePagination();
+                } catch (error) {
+                    this.showError('Failed to load articles. Please try again later.');
+                    console.error('Error:', error);
+                } finally {
+                    this.isLoading = false;
+                    this.hideLoading();
+                }
+            }
+
+            displayArticles() {
+                const startIndex = (this.currentPage - 1) * this.itemsPerPage;
+                const endIndex = startIndex + this.itemsPerPage;
+                const articlesToShow = this.filteredArticles.slice(startIndex, endIndex);
+
+                const gridContainer = document.getElementById('articlesGrid');
+                gridContainer.innerHTML = '';
+
+                articlesToShow.forEach(article => {
+                    const card = this.createPortfolioCard(article);
+                    gridContainer.appendChild(card);
+                });
+            }
+
+            createPortfolioCard(article) {
+                const card = document.createElement('div');
+                card.className = 'articles-card';
+                // card.onclick = () => window.location.href = `./articles/${article.id}/content.md`;
+                card.onclick = () => window.location.href = `article-template.html?id=${article.id}`;
+
+                const date = new Date(article.date);
+                const formattedDate = date.toLocaleDateString('en-US', {
+                    weekday: 'long',
+                    day: 'numeric',
+                    month: 'long',
+                    year: 'numeric'
+                });
+
+                card.innerHTML = `
+                    <h3 class="articles-title">${article.title}</h3>
+                    <p class="articles-description">${article.description}</p>
+                    <p class="articles-date">${formattedDate}</p>
+                    ${article.tags ? `
+                        <div class="tags-container">
+                            ${article.tags.map(tag => `<span class="tag"><i class="fa-solid fa-tag"></i> ${tag}</span>`).join('')}
+                        </div>
+                    ` : ''}
+                `;
+
+                // Add click event listeners to tags
+                const tagElements = card.querySelectorAll('.tag');
+                tagElements.forEach(tag => {
+                    tag.addEventListener('click', (e) => {
+                        e.stopPropagation(); // Prevent card click
+                        const searchTerm = e.target.textContent.trim(); // Get tag text
+                        window.location.href = `articles.html?tag=${encodeURIComponent(searchTerm)}`;
+
+                    });
+                });
+
+                return card;
+            }
+
+            updatePagination() {
+                const totalPages = Math.ceil(this.totalArticles / this.itemsPerPage);
+                const container = document.getElementById('paginationContainer');
+
+                if (totalPages <= 1) {
+                    container.innerHTML = '';
+                    return;
+                }
+
+                container.innerHTML = `
+                    <button class="paginations-button" 
+                            onclick="articleManager.loadArticles(${this.currentPage - 1})" 
+                            ${this.currentPage === 1 ? 'disabled' : ''}>
+                        Previous
+                    </button>
+                    ${this.generatePageNumbers(totalPages)}
+                    <button class="paginations-button" 
+                            onclick="articleManager.loadArticles(${this.currentPage + 1})" 
+                            ${this.currentPage === totalPages ? 'disabled' : ''}>
+                        Next
+                    </button>
+                `;
+            }
+
+            generatePageNumbers(totalPages) {
+                let pages = '';
+                const maxButtons = 5;
+                let start = Math.max(1, this.currentPage - Math.floor(maxButtons / 2));
+                let end = Math.min(totalPages, start + maxButtons - 1);
+
+                if (end - start + 1 < maxButtons) {
+                    start = Math.max(1, end - maxButtons + 1);
+                }
+
+                for (let i = start; i <= end; i++) {
+                    pages += `
+                        <button class="paginations-button ${i === this.currentPage ? 'active' : ''}" 
+                                onclick="articleManager.loadArticles(${i})">
+                            ${i}
+                        </button>
+                    `;
+                }
+
+                return pages;
+            }
+
+            showLoading() {
+                const grid = document.getElementById('articlesGrid');
+                grid.innerHTML = '<div class="loading"></div>';
+            }
+
+            hideLoading() {
+                const loading = document.querySelector('.loading');
+                if (loading) loading.remove();
+            }
+
+            showError(message) {
+                const grid = document.getElementById('articlesGrid');
+                grid.innerHTML = `<div class="error-message">${message}</div>`;
+            }
+
+            searchArticles(searchTerm) {
+                if (!searchTerm) {
+                    this.filteredArticles = this.articles;
+                } else {
+                    this.filteredArticles = this.articles.filter(article =>
+                        article.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
+                        article.description.toLowerCase().includes(searchTerm.toLowerCase()) ||
+                        article.tags.some(tag => tag.toLowerCase().includes(searchTerm.toLowerCase()))
+                    );
+                }
+                this.currentPage = 1;
+                this.displayArticles();
+                this.updatePagination();
+            }
+        }
+
+        // Initialize and load articles
+        const articleManager = new ArticleManager();
+        document.addEventListener('DOMContentLoaded', () => {
+            articleManager.loadArticles();
+        });
+    </script>
+    <!-- <script>
+        // Search functionality
+        const searchInput = document.getElementById('search-input');
+        const searchResults = document.getElementById('search-results');
+
+        searchInput.addEventListener('input', (e) => {
+            const searchTerm = e.target.value;
+
+            // Remove tag filter from URL if search is active
+            const urlParams = new URLSearchParams(window.location.search);
+            if (urlParams.has('tag')) {
+                urlParams.delete('tag');
+                window.history.replaceState({}, '', `${window.location.pathname}?${urlParams}`);
+            }
+
+            articleManager.searchArticles(searchTerm);
+        });
+    </script> -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const notificationBanner = document.getElementById('notification-banner');
+            const notificationCloseBtn = notificationBanner.querySelector('.notification-close');
+
+            function hasNotificationBeenShown() {
+                return localStorage.getItem('articleNotificationShown') === 'true';
+            }
+
+            function markNotificationAsShown() {
+                localStorage.setItem('articleNotificationShown', 'true');
+            }
+
+            function showNotification() {
+                if (!hasNotificationBeenShown()) {
+                    notificationBanner.classList.add('show');
+                    markNotificationAsShown();
+                }
+            }
+
+            function hideNotification() {
+                notificationBanner.classList.add('hide'); // Add hide class
+            }
+
+            // Show notification on page load
+            showNotification();
+
+            // Close button event listener
+            notificationCloseBtn.addEventListener('click', hideNotification);
+        });
+    </script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const searchContainer = document.querySelector('.search-container');
+            searchContainer.innerHTML = `
+        <div class="search-wrapper">
+            <input type="text" class="search-input" id="search-input" placeholder="🔍 Search articles or tags...">
+            <div class="search-dropdown" id="dropdownList">
+                <div class="dropdown-section">
+                    <div class="section-title">Tags</div>
+                    <div class="tags-cloud" id="tags-section"></div>
+                </div>
+                <div class="dropdown-section">
+                    <div class="section-title">Articles</div>
+                    <ul class="articles-list" id="articles-section"></ul>
+                </div>
+            </div>
+        </div>
+    `;
+
+            const searchInput = document.getElementById('search-input');
+            const dropdownList = document.getElementById('dropdownList');
+            const tagsSection = document.getElementById('tags-section');
+            const articlesSection = document.getElementById('articles-section');
+            let tags = [];
+            let articleTitles = [];
+            // NEW: Added variables for tab navigation
+            let focusableElements = [];
+            let currentFocusIndex = -1;
+
+            async function fetchArticles() {
+                try {
+                    const response = await fetch('articles/articles.json');
+                    if (!response.ok) throw new Error('Failed to fetch articles');
+
+                    const articles = await response.json();
+                    articleTitles = articles.map(article => article.title);
+                    tags = [...new Set(articles.flatMap(article => article.tags))];
+                } catch (error) {
+                    console.error('Error fetching articles:', error);
+                }
+            }
+
+            function showDropdownList(items) {
+                tagsSection.innerHTML = '';
+                articlesSection.innerHTML = '';
+
+                const tagItems = items.filter(item => item.type === 'tag');
+                const articleItems = items.filter(item => item.type === 'article');
+
+                // MODIFIED: Added tabindex and keyboard event handling for tags
+                tagItems.forEach(item => {
+                    const div = document.createElement('div');
+                    div.className = 'dropdown-tag';
+                    div.innerHTML = `<i class="fa-solid fa-tag"></i> ${item.name}`;
+                    div.setAttribute('tabindex', '0');  // NEW: Make element focusable
+                    div.addEventListener('click', () => {
+                        searchInput.value = item.name;
+                        hideDropdown();
+                        articleManager.searchArticles(item.name);
+                    });
+                    // NEW: Added keyboard support
+                    div.addEventListener('keypress', (e) => {
+                        if (e.key === 'Enter') {
+                            searchInput.value = item.name;
+                            hideDropdown();
+                            articleManager.searchArticles(item.name);
+                        }
+                    });
+                    tagsSection.appendChild(div);
+                });
+
+                // MODIFIED: Added tabindex and keyboard event handling for articles
+                articleItems.forEach(item => {
+                    const li = document.createElement('li');
+                    li.className = 'article-item';
+                    // li.innerHTML = `<i class="fa-solid fa-folder"></i>${item.name}`;
+                    li.innerHTML = `📁 ${item.name}`
+                    li.setAttribute('tabindex', '0');  // NEW: Make element focusable
+                    li.addEventListener('click', () => {
+                        searchInput.value = item.name;
+                        hideDropdown();
+                        articleManager.searchArticles(item.name);
+                    });
+                    // NEW: Added keyboard support
+                    li.addEventListener('keypress', (e) => {
+                        if (e.key === 'Enter') {
+                            searchInput.value = item.name;
+                            hideDropdown();
+                            articleManager.searchArticles(item.name);
+                        }
+                    });
+                    articlesSection.appendChild(li);
+                });
+
+                showDropdown();
+                updateFocusableElements();  // NEW: Update focusable elements after rendering
+            }
+
+            // NEW: Added function to track focusable elements
+            function updateFocusableElements() {
+                focusableElements = [
+                    ...tagsSection.querySelectorAll('.dropdown-tag'),
+                    ...articlesSection.querySelectorAll('.article-item')
+                ];
+                currentFocusIndex = -1;
+            }
+
+            // NEW: Added tab navigation handler
+            function handleTabNavigation(e) {
+                if (!dropdownList.classList.contains('active')) return;
+
+                if (e.key === 'Tab') {
+                    e.preventDefault();
+
+                    if (e.shiftKey) {
+                        // Shift + Tab: move backwards
+                        currentFocusIndex = currentFocusIndex <= 0 ? focusableElements.length - 1 : currentFocusIndex - 1;
+                    } else {
+                        // Tab: move forwards
+                        currentFocusIndex = currentFocusIndex >= focusableElements.length - 1 ? 0 : currentFocusIndex + 1;
+                    }
+
+                    focusableElements[currentFocusIndex]?.focus();
+                }
+            }
+
+            function filterDropdownItems(query) {
+                const filteredItems = [];
+                if (query) {
+                    filteredItems.push(
+                        ...tags.filter(tag => tag.toLowerCase().includes(query.toLowerCase()))
+                            .map(tag => ({ name: tag, type: 'tag' })),
+                        ...articleTitles.filter(title => title.toLowerCase().includes(query.toLowerCase()))
+                            .map(title => ({ name: title, type: 'article' }))
+                    );
+                } else {
+                    filteredItems.push(
+                        ...tags.map(tag => ({ name: tag, type: 'tag' })),
+                        ...articleTitles.map(title => ({ name: title, type: 'article' }))
+                    );
+                }
+                showDropdownList(filteredItems);
+            }
+
+            function showDropdown() {
+                dropdownList.classList.add('active');
+            }
+
+            // MODIFIED: Added focus reset to hideDropdown
+            function hideDropdown() {
+                dropdownList.classList.remove('active');
+                currentFocusIndex = -1;
+            }
+
+            // Initialize and fetch articles on load
+            fetchArticles();
+
+            // Event listeners
+            searchInput.addEventListener('input', (e) => {
+                const query = e.target.value;
+                filterDropdownItems(query);
+                if (!query) {
+                    hideDropdown();
+                }
+            });
+
+            // NEW: Added tab navigation event listener
+            document.addEventListener('keydown', handleTabNavigation);
+
+            // Hide dropdown if clicked outside
+            document.addEventListener('click', (e) => {
+                if (!e.target.closest('.search-wrapper')) {
+                    hideDropdown();
+                }
+            });
+
+            // Check for tag parameter in URL on load
+            const urlParams = new URLSearchParams(window.location.search);
+            const tagParam = urlParams.get('tag');
+            if (tagParam) {
+                searchInput.value = tagParam;
+                articleManager.searchArticles(tagParam);
+            }
+
+            searchInput.addEventListener('click', (e) => {
+                const query = e.target.value;
+                filterDropdownItems(query);
+                // if (!query) {
+                //     hideDropdown();
+                // }
+            });
+        });
+    </script>
+</body>
+
+</html>

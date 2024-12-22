@@ -1,0 +1,8 @@
+{
+    "id": "004-mobile-price-classification",
+    "title": "Mobile Phone Price Classification",
+    "date": "2024-11-30",
+    "description": "Training Scikit-Learn Pipeline to classify mobile phone prices.",
+    "tags": ["multiclass-classification", "scikit-learn", "pipeline"],
+    "headerImage": "./portfolios/004-mobile-price-classification/mob_pred_bgimg.png"
+}

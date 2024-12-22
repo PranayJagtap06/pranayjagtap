@@ -1,0 +1,8 @@
+{
+    "id": "005-asl-detector-pytorch",
+    "title": "American Sign Language (ASL) Detector using PyTorch",
+    "date": "2024-12-19",
+    "description": "Building a system to detect American Sign Language (ASL) using PyTorch",
+    "tags": ["image-classification", "pytorch", "transfer-learning"],
+    "headerImage": "./portfolios/005-asl-detector-pytorch/asl.jpg"
+}
