@@ -401,7 +401,7 @@ a.nav-link.active {
 }
 
 .nav-link {
-  color: #fff;
+  color: #000000;
   transition: color 0.3s ease;
 }
 
@@ -461,6 +461,20 @@ a.nav-link.active {
 
 #menu-toggle:checked+.menu-toggle+.mobile-navbar-menu {
   display: none;
+}
+
+.navbar ul li a.nav-link.active,
+.desktop-navbar ul li a.nav-link.active,
+.mobile-navbar-menu li a.nav-link.active {
+  font-weight: bold;
+  color: #054958 !important;
+  text-decoration: none;
+}
+
+.navbar ul li a.nav-link.active:hover,
+.desktop-navbar ul li a.nav-link.active:hover,
+.mobile-navbar-menu li a.nav-link.active:hover {
+  color: #054958 !important;
 }
 
 /* Media Queries */
