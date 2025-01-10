@@ -45,6 +45,6 @@
         "date": "2024-12-29",
         "description": "Building an Animal Classifier using PyTorch and EfficientNet_B0",
         "tags": ["image-classification", "pytorch", "finetune-transfer-learning"],
-        "headerImage": "./portfolios/005-asl-detector-pytorch/asl.jpg"
+        "headerImage": "./portfolios/006-finetuned-animal-classification/assets/animal-bg.png"
     }
 ]
