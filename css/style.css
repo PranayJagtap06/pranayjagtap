@@ -725,6 +725,8 @@ p.intro-main {
   max-width: 85%;
   height: auto;
   object-fit: cover;
+  object-position: 100% 0%;
+  aspect-ratio: 1 / 1;
 }
 
 /* Media Queries for Mobile */
