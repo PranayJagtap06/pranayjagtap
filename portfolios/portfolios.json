@@ -1,50 +1,86 @@
 [
-    {
-        "id": "001-foreign-exchange-reserves-prediction",
-        "title": "Indian Foreign Exchange Reserves Prediction",
-        "date": "2024-04-1",
-        "description": "Training a Facebook Prophet model to predict Indian foreign exchange reserves.",
-        "tags": ["prophet", "scikit-learn", "time-series"],
-        "headerImage": "./portfolios/001-foreign-exchange-reserves-prediction/unsplash_indian_rupee.jpg"
-    },
-    {
-        "id": "002-hand-sign-classification",
-        "title": "Hand Sign Classification with CNN.",
-        "date": "2024-04-16",
-        "description": "0-5 hand sign classification using CNN",
-        "tags": ["image-classification", "cnn", "tensorflow"],
-        "headerImage": "./portfolios/002-hand-sign-classification/human-hands-background-set-scaled.jpg"
-    },
-    {
-        "id": "003-finetune-hand-sign-classification",
-        "title": "Fine Tuned Hand Sign Classifier",
-        "date": "2024-07-03",
-        "description": "Fine tuning 0-5 hand sign classifier using Transfer Learning.",
-        "tags": ["image-classification", "transfer-learning", "tensorflow"],
-        "headerImage": "./portfolios/003-finetune-hand-sign-classification/transfer-learning.jpg"
-    },
-    {
-        "id": "004-mobile-price-classification",
-        "title": "Mobile Phone Price Classification",
-        "date": "2024-11-30",
-        "description": "Training Scikit-Learn Pipeline to classify mobile phone prices.",
-        "tags": ["multiclass-classification", "scikit-learn", "pipeline"],
-        "headerImage": "./portfolios/004-mobile-price-classification/mob_pred_bgimg.png"
-    },
-    {
-        "id": "005-asl-detector-pytorch",
-        "title": "American Sign Language (ASL) Detector using PyTorch",
-        "date": "2024-12-19",
-        "description": "Building a system to detect American Sign Language (ASL) using PyTorch",
-        "tags": ["image-classification", "pytorch", "transfer-learning"],
-        "headerImage": "./portfolios/005-asl-detector-pytorch/asl.jpg"
-    },
-    {
-        "id": "006-finetuned-animal-classification",
-        "title": "Fine-Tuning EfficientNet_B0 for Animal Classification using PyTorch",
-        "date": "2024-12-29",
-        "description": "Building an Animal Classifier using PyTorch and EfficientNet_B0",
-        "tags": ["image-classification", "pytorch", "finetune-transfer-learning"],
-        "headerImage": "./portfolios/006-finetuned-animal-classification/assets/animal-bg.png"
-    }
+  {
+    "id": "001-foreign-exchange-reserves-prediction",
+    "title": "Indian Foreign Exchange Reserves Prediction",
+    "date": "2024-04-1",
+    "description": "Training a Facebook Prophet model to predict Indian foreign exchange reserves.",
+    "tags": [
+      "prophet",
+      "scikit-learn",
+      "time-series"
+    ],
+    "headerImage": "./portfolios/001-foreign-exchange-reserves-prediction/unsplash_indian_rupee.jpg"
+  },
+  {
+    "id": "002-hand-sign-classification",
+    "title": "Hand Sign Classification with CNN.",
+    "date": "2024-04-16",
+    "description": "0-5 hand sign classification using CNN",
+    "tags": [
+      "image-classification",
+      "cnn",
+      "tensorflow"
+    ],
+    "headerImage": "./portfolios/002-hand-sign-classification/human-hands-background-set-scaled.jpg"
+  },
+  {
+    "id": "003-finetune-hand-sign-classification",
+    "title": "Fine Tuned Hand Sign Classifier",
+    "date": "2024-07-03",
+    "description": "Fine tuning 0-5 hand sign classifier using Transfer Learning.",
+    "tags": [
+      "image-classification",
+      "transfer-learning",
+      "tensorflow"
+    ],
+    "headerImage": "./portfolios/003-finetune-hand-sign-classification/transfer-learning.jpg"
+  },
+  {
+    "id": "004-mobile-price-classification",
+    "title": "Mobile Phone Price Classification",
+    "date": "2024-11-30",
+    "description": "Training Scikit-Learn Pipeline to classify mobile phone prices.",
+    "tags": [
+      "multiclass-classification",
+      "scikit-learn",
+      "pipeline"
+    ],
+    "headerImage": "./portfolios/004-mobile-price-classification/mob_pred_bgimg.png"
+  },
+  {
+    "id": "005-asl-detector-pytorch",
+    "title": "American Sign Language (ASL) Detector using PyTorch",
+    "date": "2024-12-19",
+    "description": "Building a system to detect American Sign Language (ASL) using PyTorch",
+    "tags": [
+      "image-classification",
+      "pytorch",
+      "transfer-learning"
+    ],
+    "headerImage": "./portfolios/005-asl-detector-pytorch/asl.jpg"
+  },
+  {
+    "id": "006-finetuned-animal-classification",
+    "title": "Fine-Tuning EfficientNet_B0 for Animal Classification using PyTorch",
+    "date": "2024-12-29",
+    "description": "Building an Animal Classifier using PyTorch and EfficientNet_B0",
+    "tags": [
+      "image-classification",
+      "pytorch",
+      "finetune-transfer-learning"
+    ],
+    "headerImage": "./portfolios/006-finetuned-animal-classification/assets/animal-bg.png"
+  },
+  {
+    "id": "007-simple-document-summarizer-chatbot",
+    "title": "A Simple Document Summarizer Chatbot",
+    "date": "2025-08-30",
+    "description": "Building a Document Summarizer Chatbot using Google Gemini & ChromaDB",
+    "tags": [
+      "document-summarization",
+      "chatbot",
+      "gemini"
+    ],
+    "headerImage": "./portfolios/007-simple-document-summarizer-chatbot/assets/Gemini-Google.jpg"
+  }
 ]

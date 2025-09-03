@@ -1,0 +1,12 @@
+{
+  "id": "007-simple-document-summarizer-chatbot",
+  "title": "A Simple Document Summarizer Chatbot",
+  "date": "2025-08-30",
+  "description": "Building a Document Summarizer Chatbot using Google Gemini & ChromaDB",
+  "tags": [
+    "document-summarization",
+    "chatbot",
+    "gemini"
+  ],
+  "headerImage": "./portfolios/007-simple-document-summarizer-chatbot/assets/Gemini-Google.jpg"
+}

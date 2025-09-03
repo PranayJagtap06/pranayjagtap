@@ -1,14 +1,17 @@
 # Fine-Tuning EfficientNet_B0 for Animal Classification using PyTorch
+----
 
 <em><a href="https://github.com/PranayJagtap06/UFM_Animal_Classification" target="_blank" rel="noopener noreferrer">Check out my PyTorch Animal Classification project on GitHub!</a></em>
 
 <em><a href="https://fifteen-animal-classifier.streamlit.app/" target="_blank" rel="noopener noreferrer">Visit Project's Streamlit App</a></em>
 
 ## **1. Introduction**
+----
 
 This project report outlines the development of an image classification system designed to recognize 15 different animal species *`[Bear, Bird, Cat, Cow, Deer, Dog, Dolphin, Elephant, Giraffe, Horse, Kangaroo, Lion, Panda, Tiger, Zebra]`*. The project utilizes a fine-tuned `EfficientNet-B0` model, a convolutional neural network architecture known for its efficiency and performance. The primary goal of this project is to demonstrate the application of fine-tune transfer learning principles and the process of building a machine learning model for a specific task like image classification.
 
 ## **2. Project Objectives**
+----
 
 *   Develop a multi-class image classification model capable of identifying 15 distinct animal species.
 *   Apply transfer learning techniques to leverage a pre-trained `EfficientNet-B0` model, shortening training time and resources.
@@ -19,10 +22,11 @@ This project report outlines the development of an image classification system d
 *   Finally, deploy the model as a web application using `Streamlit` for user-friendly interface and real-time predictions.
 
 ## **3. Methodology**
+----
 
 The project follows these steps:
 
-### **3.1. Data Acquisition and Preparation (Section 1)**
+### **3.1. Data Acquisition and Preparation**
 
 *   **GitHub Repository Cloning:** The project begins by cloning a GitHub repository containing the required dataset and supporting scripts. This is a standard practice to manage and version control the project’s components.
     ```bash
@@ -55,7 +59,7 @@ The project follows these steps:
     ```
 *   **Data Splitting:** Images are split with a `80:20` ratio between train and test datasets. The files from each animal category are shuffled and split based on the ratio. The split process is printed to confirm the number of training and test images per animal category.
 
-### **3.2. Data Loading and Preprocessing (Section 2)**
+### **3.2. Data Loading and Preprocessing**
 
 *   **`data_loader.py` Script:** The `data_loader.py` script contains the dataset loading and preprocessing logic. The script dynamically creates training and validation datasets, including distributed training. The script first loads weights, applies appropriate image transformation as per the downloaded weights, downloads the `EfficientNet-B0`, and recreates the classifier for a 15 class output.
 *   **Pre-Trained Weights Loading:** Pre-trained weights of `EfficientNet-B0` are loaded. These weights are essential as they allow the model to leverage the existing knowledge of image features instead of learning from scratch. The model can be then used for fine tuning.
@@ -79,7 +83,7 @@ The project follows these steps:
     ```
 *   **Data Loaders:** PyTorch's `ImageFolder` and `DataLoader` classes are used to create datasets for training and validation. The training dataset is configured with an option for distributed sampling via the `DistributedSampler` if multiple GPUs are used.
 
-### **3.3. PyTorch Engine (Section 3)**
+### **3.3. PyTorch Engine**
 
 *   **`pt_engine.py` Script:** This script contains the code for the training loop, evaluation loop, early stopping, and data saving.
 *   **`CustomTrainer` Class:** This class encapsulates the entire training process. It is initialized with all the required elements for the training including `model`, `dataloaders`, `criterion`, `optimizer`, `gpu-id`, path, `patience`, `max_epochs`, `world_size`, and a s`cheduler`.
@@ -90,7 +94,7 @@ The project follows these steps:
 *   **Metric Calculation:** `torchmetrics` library provides calculation of validation metrics, including accuracy and f1 score.
 *   **Tensor Gathering:** The results such as training losses, validation losses, accuracies, and f1 scores from all available GPUs are gathered to calculate overall performance of the training.
 
-### **3.4. Training Script (Section 4)**
+### **3.4. Training Script**
 
 *   **`pt_train.py` Script:** The training script integrates all components and performs the overall model training.
 *   **Argument Parsing:** The script uses `argparse` to specify parameters like total epochs, batch size, GPU usage, model save path, training and validation paths, learning rate and a learning rate scheduler.
@@ -100,7 +104,7 @@ The project follows these steps:
 *   **Main Training Loop:** The training script uses `mp.spawn` to handle multi-gpu training and executes the main function. The model is then trained using the custom trainer class.
 *   **Data Handling:** The script loads the data by using the custom data loader.
 
-### **3.5. Model Training (Section 5)**
+### **3.5. Model Training**
 
 *   **Command-line Execution:** The `pt_train.py` script is executed from the notebook. The command line interface (CLI) options control various parameters, such as which data to use for training and validation, learning rate, batch size and so on.
     ```bash
@@ -108,17 +112,17 @@ The project follows these steps:
     ```
 *   **Output:** During training, the code displays real-time updates on training and validation metrics, epochs, batch processing speed and also saves the best performing model according to the validation results.
 
-### **3.6. Model Evaluation (Section 6)**
+### **3.6. Model Evaluation**
 
 *   **Metric Visualization:** The notebook loads the tracked losses, accuracies and f1 scores from files that are created by the model trainer. The loaded performance results are plotted using plotly for further analysis.
 
 <div align="center">
     <figure>
         <a href="/portfolios/006-finetuned-animal-classification/assets/loss_curve.html">
-            <iframe 
-                src="/portfolios/006-finetuned-animal-classification/assets/loss_curve.html" 
-                width="100%" 
-                height="775px" 
+            <iframe
+                src="/portfolios/006-finetuned-animal-classification/assets/loss_curve.html"
+                width="100%"
+                height="775px"
                 frameborder="0"
                 alt="Loss Curve">
             </iframe>
@@ -130,10 +134,10 @@ The project follows these steps:
 <div align="center">
     <figure>
         <a href="/portfolios/006-finetuned-animal-classification/assets/accuracy_curve.html">
-            <iframe 
-                src="/portfolios/006-finetuned-animal-classification/assets/accuracy_curve.html" 
-                width="100%" 
-                height="775px" 
+            <iframe
+                src="/portfolios/006-finetuned-animal-classification/assets/accuracy_curve.html"
+                width="100%"
+                height="775px"
                 frameborder="0"
                 alt="Accuracy Curve">
             </iframe>
@@ -145,10 +149,10 @@ The project follows these steps:
 <div align="center">
     <figure>
         <a href="/portfolios/006-finetuned-animal-classification/assets/f1score_curve.html">
-            <iframe 
-                src="/portfolios/006-finetuned-animal-classification/assets/f1score_curve.html" 
-                width="100%" 
-                height="775px" 
+            <iframe
+                src="/portfolios/006-finetuned-animal-classification/assets/f1score_curve.html"
+                width="100%"
+                height="775px"
                 frameborder="0"
                 alt="F1Score Curve">
             </iframe>
@@ -180,7 +184,7 @@ The project follows these steps:
     *    ```pl
          Classification Report:
                        precision    recall  f1-score   support
-         
+
                  Bear       1.00      1.00      1.00        25
                  Bird       0.93      1.00      0.97        28
                   Cat       0.93      1.00      0.96        25
@@ -196,7 +200,7 @@ The project follows these steps:
                 Panda       1.00      1.00      1.00        27
                 Tiger       1.00      1.00      1.00        26
                 Zebra       1.00      1.00      1.00        28
-         
+
              accuracy                           0.98       395
             macro avg       0.98      0.98      0.98       395
          weighted avg       0.98      0.98      0.98       395
@@ -205,10 +209,10 @@ The project follows these steps:
 <div align="center">
     <figure>
         <a href="/portfolios/006-finetuned-animal-classification/assets/confusion_matrix_val.html">
-            <iframe 
-                src="/portfolios/006-finetuned-animal-classification/assets/confusion_matrix_val.html" 
-                width="100%" 
-                height="775px" 
+            <iframe
+                src="/portfolios/006-finetuned-animal-classification/assets/confusion_matrix_val.html"
+                width="100%"
+                height="775px"
                 frameborder="0"
                 alt="Validation Confusion Matrix">
             </iframe>
@@ -222,10 +226,10 @@ The project follows these steps:
 <div align="center">
     <figure>
         <a href="/portfolios/006-finetuned-animal-classification/assets/pr_curve_val.html">
-            <iframe 
-                src="/portfolios/006-finetuned-animal-classification/assets/pr_curve_val.html" 
-                width="100%" 
-                height="450px" 
+            <iframe
+                src="/portfolios/006-finetuned-animal-classification/assets/pr_curve_val.html"
+                width="100%"
+                height="450px"
                 frameborder="0"
                 alt="Validation Precision-Recall Curve">
             </iframe>
@@ -239,10 +243,10 @@ The project follows these steps:
 <div align="center">
     <figure>
         <a href="/portfolios/006-finetuned-animal-classification/assets/roc_curve_val.html">
-            <iframe 
-                src="/portfolios/006-finetuned-animal-classification/assets/roc_curve_val.html" 
-                width="100%" 
-                height="450px" 
+            <iframe
+                src="/portfolios/006-finetuned-animal-classification/assets/roc_curve_val.html"
+                width="100%"
+                height="450px"
                 frameborder="0"
                 alt="Validation ROC Curve">
             </iframe>
@@ -251,18 +255,19 @@ The project follows these steps:
     </figure>
 </div>
 
-### **3.7. Model and Artifact Logging (Section 7)**
+### **3.7. Model and Artifact Logging**
 
 *   **Dagshub Integration:** Dagshub is used to track the experiment via the API.
 *   **MLflow Tracking:** The project uses MLflow for tracking experiment parameters, training metrics, and artifacts. MLflow is initialized to use dagshub tracking url, which can be obtained from the Dagshub interface by opening the remote tab on the left, then clicking on the experiment section, which will open up the tracking uri.
 *  **Experiment Logging:** After the connection to the MLflow is established, the experiments are logged using a function called `create_experiment`. This function also receives metrics, model, artifacts, run parameters, and tags as part of the log. The tracked information can then be seen in dagshub.
 
-### **3.8. Identifying Animals (Section 8)**
+### **3.8. Identifying Animals**
 
 *   **Prediction Function:** A function `pred_and_plot_image` is used, to showcase how to load the trained model, make a prediction and display the result with the actual image.
 *  **Image Sampling:** Uses `random.sample` to randomly select images from the validation set and classify the images using the loaded trained model.
 
 ## **4. Results and Observations**
+----
 
 *   The model achieves excellent overall performance with a validation accuracy of around `98%`.
 *   The F1-scores are very good, hovering around `98%` too, indicating a good balance of precision and recall across all classes.
@@ -271,5 +276,6 @@ The project follows these steps:
 *   Some animal categories, like 'Cow' and 'Horse', may have slightly lower classification metrics compared to others, suggesting a slight confusion of these categories by the model. However, this is a very small margin and can be accepted.
 
 ## **5. Conclusion**
+----
 
 This project successfully developed an animal classification system using transfer learning and fine-tuning a pre-trained `EfficientNet-B0` model. The model achieved strong performance across all 15 animal classes, indicating the effectiveness of the approach. The use of distributed training accelerated the training process, and integration with Dagshub and MLflow provided detailed experiment tracking and management. In next step this trained model was deployed on streamlit so users can upload their own images to the application and identify the class of the image.
