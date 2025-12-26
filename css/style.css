@@ -477,6 +477,21 @@ a.nav-link.active {
   color: #054958 !important;
 }
 
+/* Just Learning */
+.just-learning.index {
+  color: darkgrey;
+  font-style: italic;
+  text-align: center;
+  margin-top: 3rem;
+}
+
+.just-learning {
+  color: darkgrey;
+  font-style: italic;
+  text-align: center;
+  margin-top: 5rem;
+}
+
 /* Media Queries */
 @media (min-width: 769px) {
   .desktop-navbar {
@@ -712,7 +727,7 @@ p.intro-main {
 
 /* Profile Image */
 .circle {
-  margin: 30px;
+  margin: 20px 20px 10px 20px;
   max-width: 100%;
   display: flex;
   justify-content: center;
